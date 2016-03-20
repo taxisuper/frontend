@@ -11,7 +11,7 @@ export default function CountryList({ countries }) {
     .sortBy(item => -item.tweetCount)
     .slice(0, NO_OF_COUNTRIES)
     .map(item => (
-       <li key={item.countryCode}>
+      <li key={item.countryCode}>
         <Flag countryCode={item.countryCode} />
         <span className="country-tweet-count">{ item.tweetCount }</span>
       </li>

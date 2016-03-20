@@ -1,10 +1,10 @@
 import React from 'react';
 import Flag from './Flag';
 
-const Tweet = React.createClass({
+export default class Tweet extends React.Component {
   shouldComponentUpdate(nextProps) {
     return this.props.tweet !== nextProps.tweet;
-  },
+  }
 
   render() {
     const { tweet } = this.props;
@@ -30,7 +30,5 @@ const Tweet = React.createClass({
       </div>
     );
   }
+}
 
-});
-
-export default Tweet;

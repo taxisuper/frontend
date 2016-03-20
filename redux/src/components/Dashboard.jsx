@@ -8,25 +8,26 @@ import InfluentialTweets from './InfluentialTweets';
 
 const ws = new WebSocket('ws://twitterws.herokuapp.com');
 
-const Dashboard = React.createClass({
+class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
 
-  getInitialState() {
-    return {
+    this.state = {
       tweets: [],
       tweetCount: 0,
       currentTweet: null,
       countries: {}
     };
-  },
+  }
 
   countCountry(countryCode) {
     const countries = _.clone(this.state.countries);
     countries[countryCode] = (countries[countryCode] || 0) + 1;
     this.setState({ countries });
-  },
+  }
 
   componentDidMount() {
-    ws.onmessage = function (ms) {
+    ws.onmessage = ms => {
       const newTweet = JSON.parse(ms.data);
       const tweets = this.state.tweets.concat([newTweet]).slice(-100);
       this.setState({ tweets, tweetCount: this.state.tweetCount + 1 });
@@ -35,12 +36,12 @@ const Dashboard = React.createClass({
       if (countryCode) {
         this.countCountry(countryCode);
       }
-    }.bind(this);
-  },
+    };
+  }
 
   componentWillUnmount() {
     ws.onmessage = null;
-  },
+  }
 
   showTweet(id) {
     const tweet = _.findWhere(this.state.tweets, { id });
@@ -48,29 +49,28 @@ const Dashboard = React.createClass({
       console.log('Tweet no longer in selection');
     }
     this.setState({ currentTweet: tweet });
-  },
+  }
 
   render() {
-    let tweet = null;
-    if (this.state.currentTweet !== null) {
-      tweet = <CurrentTweet tweet={ this.state.currentTweet } />;
-    }
+    const { currentTweet, tweets, tweetCount, countries } = this.state;
+    const tweet = currentTweet !== null ?
+      <CurrentTweet tweet={ currentTweet } /> :
+      null;
 
     return (
       <div>
         <TweetMap
-          tweets={ this.state.tweets }
-          currentTweet={ this.state.currentTweet }
+          tweets={ tweets }
+          currentTweet={ currentTweet }
           showTweet={ this.showTweet}
         />
-        <InfluentialTweets tweets={ this.state.tweets } />
-        <AppHeader tweetCount={this.state.tweetCount} />
-        <CountryList countries={this.state.countries} />
+        <InfluentialTweets tweets={ tweets } />
+        <AppHeader tweetCount={ tweetCount } />
+        <CountryList countries={ countries } />
         { tweet }
       </div>
     );
   }
-
-});
+}
 
 export default Dashboard;
