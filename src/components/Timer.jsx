@@ -4,6 +4,8 @@ export default class Timer extends React.Component {
   constructor(props) {
     super(props);
 
+    this.tick = this.tick.bind(this);
+
     this.state = { elapsed: 0 };
   }
 
