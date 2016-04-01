@@ -9,7 +9,7 @@ import CountryList from '../components/CountryList';
 import CurrentTweet from '../components/CurrentTweet';
 import InfluentialTweets from '../components/InfluentialTweets';
 
-class Dashboard extends React.Component {
+class Map extends React.Component {
   constructor(props) {
     super(props);
 
@@ -35,7 +35,6 @@ class Dashboard extends React.Component {
           showTweet={ this.showTweet }
         />
         <InfluentialTweets tweets={ tweets } />
-        <AppHeader tweetCount={ tweetCount } />
         <CountryList countries={ countries } />
         { tweet }
       </div>
@@ -43,7 +42,7 @@ class Dashboard extends React.Component {
   }
 }
 
-Dashboard.propTypes = {
+Map.propTypes = {
   tweets: PropTypes.array,
   tweetCount: PropTypes.number,
   currentTweet: PropTypes.object,
@@ -58,4 +57,4 @@ const mapStateToProps = state => ({
   countries: state.countries
 });
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps)(Map);

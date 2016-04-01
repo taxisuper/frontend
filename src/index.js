@@ -5,8 +5,9 @@ import { Provider } from 'react-redux';
 import configureStore from './configureStore';
 import { newTweet } from './actions';
 
-import App from './containers/App';
+import Router from './Router';
 import DevTools from './containers/DevTools';
+
 
 const store = configureStore();
 
@@ -21,7 +22,7 @@ ws.onmessage = ms => {
 render(
   <Provider store={ store }>
     <div>
-      <App />
+      <Router />
       <DevTools />
     </div>
   </Provider>,
