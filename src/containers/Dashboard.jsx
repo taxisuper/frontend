@@ -35,7 +35,6 @@ class Dashboard extends React.Component {
           showTweet={ this.showTweet }
         />
         <InfluentialTweets tweets={ tweets } />
-        <AppHeader tweetCount={ tweetCount } />
         <CountryList countries={ countries } />
         { tweet }
       </div>
