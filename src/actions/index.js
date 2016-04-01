@@ -4,14 +4,14 @@ export const TWEET_SELECTED = 'TWEET_SELECTED';
 export function newTweet(tweet) {
   return {
     type: TWEET_RECEIVED,
-    payload: tweet
+    tweet
   };
 }
 
 export function selectTweet(tweet) {
   return {
     type: TWEET_SELECTED,
-    payload: tweet
+    tweet
   };
 }
 

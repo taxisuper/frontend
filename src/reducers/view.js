@@ -15,7 +15,7 @@ export default function (state = initialState, action) {
   case TWEET_SELECTED:
     return {
       ...state,
-      currentTweet: action.payload
+      currentTweet: action.tweet
     };
   default:
     return state;

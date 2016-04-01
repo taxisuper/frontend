@@ -5,7 +5,7 @@ export default function (state = [], action) {
   case TWEET_RECEIVED:
     return [
       ...state.slice(-99),
-      action.payload
+      action.tweet
     ];
   default:
     return state;
