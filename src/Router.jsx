@@ -1,6 +1,5 @@
 import React from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
 
 import Dashboard from './containers/Dashboard.jsx';
 import Settings from './containers/Settings.jsx';
