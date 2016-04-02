@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import { selectTweet, setFilterActive } from '../actions';
+import { selectTweet, setFilterActive, addFilter } from '../actions';
 
 import TweetMap from '../components/TweetMap';
 import CountryList from '../components/CountryList';
 import CurrentTweet from '../components/CurrentTweet';
 import InfluentialTweets from '../components/InfluentialTweets';
-import FilterList from '../components/FilterList';
+import FilterContainer from './FilterContainer.jsx';
 
 class Map extends React.Component {
   constructor(props) {
@@ -25,7 +25,6 @@ class Map extends React.Component {
     const {
       currentTweet,
       tweets,
-      countries,
       filters,
       dispatch
     } = this.props;
@@ -43,11 +42,10 @@ class Map extends React.Component {
           showTweet={ this.showTweet }
           filters={ activeFilters }
         />
-        <InfluentialTweets tweets={ tweets } />
-        <CountryList countries={ countries } />
-        <FilterList
-          filters={ filters }
-          onFilterActiveChange={ (f, active) => dispatch(setFilterActive(f, active)) }
+        <FilterContainer
+          filters = {filters}
+          addFilterHandler = {f => dispatch(addFilter(f))}
+          activateFilterHandler = {(f, active) => dispatch(setFilterActive(f, active))}
         />
         { tweet }
       </div>

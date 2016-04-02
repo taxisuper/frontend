@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 
 import AppHeader from '../components/AppHeader.jsx';
@@ -12,8 +12,12 @@ export default function App({children, tweetCount}) {
   );
 }
 
+App.propTypes = {
+  tweetCount: PropTypes.number.isRequired,
+};
+
 const mapStateToProps = state => ({
-    tweetCount: state.view.tweetCount,
+    tweetCount: state.view.tweetCount
 });
 
 export default connect(mapStateToProps)(App);
