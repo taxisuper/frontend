@@ -1,5 +1,6 @@
 function matchesHashtags(tweet) {
   return filter =>
+    tweet.entities &&
     tweet.entities.hashtags &&
     filter.hashtags &&
       tweet.entities.hashtags
