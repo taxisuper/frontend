@@ -4,11 +4,11 @@ import { getCountryName } from '../src/util/countries';
 import { findFilterMatch } from '../src/util/filters';
 
 describe('getCountryName', () => {
-  it("should get name for 'no'", () => {
+  it("should get 'Norway' for country code 'no'", () => {
     expect(getCountryName('no')).toBe('Norway');
   });
 
-  it('should return country code if not found', () => {
+  it('should return the country code if the name for that code does not exist', () => {
     const invalidCountryCode = 'asdadqasda';
     expect(getCountryName(invalidCountryCode)).toBe(invalidCountryCode);
   });
@@ -28,7 +28,7 @@ describe('findFilterMatch', () => {
     hashtagFilter
   ];
 
-  it('should match on text', () => {
+  it('should be able to match on text', () => {
     const tweet = {
       text: 'this is a tweet containing text'
     };
@@ -36,7 +36,7 @@ describe('findFilterMatch', () => {
     expect(findFilterMatch(tweet, filters)).toBe(textFilter);
   });
 
-  it('should match on hashtags', () => {
+  it('should be able to match on hashtags', () => {
     const tweet = {
       entities: {
         hashtags: [{ text: 'react' }]
