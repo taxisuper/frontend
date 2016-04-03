@@ -11,7 +11,7 @@ const FilterForm = ({updateState, state, onSubmit}) => {
     {value: "orange", label:"Orange"},
     {value: "purple", label:"Purple"},
     {value: "red", label:"Red"},
-    {value: "lightblue", label:"Lightblue"},
+    {value: "lightblue", label:"Light blue"},
     {value: "green", label:"Green"}
   ];
   const formatState = state => {
