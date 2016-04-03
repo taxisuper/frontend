@@ -4,7 +4,7 @@ function Filter({ name, color, isActive, onNameClick }) {
   const className = isActive ? '' : 'inactive';
   return (
     <span className={ className } onClick={ onNameClick }>
-      <div className={`circle ${color} ${className}`}></div>
+      <div className={`circle ${color} ${className}`}/>
       { name }
     </span>
   );
