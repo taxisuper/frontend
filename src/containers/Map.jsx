@@ -68,7 +68,7 @@ const mapStateToProps = state => ({
   countries: state.countries,
   filters: state.filters.map(f => ({
     ...f,
-    isActive: state.view.activeFilterIdsMap[f.id]
+    isActive: state.view.activeFilterNameMap[f.name]
   }))
 });
 

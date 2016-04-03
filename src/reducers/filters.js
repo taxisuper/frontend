@@ -4,9 +4,9 @@ import {
 } from '../actions';
 
 const initialState = [{
-  color: 'pink',
-  name: 'example',
-   text: 'yo',
+  color: 'yellow',
+  name: 'Trump',
+   text: 'Trump',
 }];
 
 export default function (state = initialState, action) {

@@ -27,7 +27,7 @@ const FilterForm = ({updateState, state, onSubmit}) => {
       <InputField name="hashtag" label="#"
                   value={state.hashtags} onChange={hashtags => updateState({hashtags})}/>
       <InputField name="text" label="Text"
-                  value={state.text} onChange={name => updateState({text})}/>
+                  value={state.text} onChange={text => updateState({text})}/>
       <SelectField name="color" label="Marker color" options={colors}
                    value={state.color} onChange={color => updateState({color})} />
       <button onClick={e => {e.preventDefault(); onSubmit(formatState(state));}}>Save</button>

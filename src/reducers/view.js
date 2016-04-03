@@ -8,7 +8,7 @@ import {
 const initialState = {
   tweetCount: 0,
   currentTweet: null,
-  activeFilterIdsMap: {}
+  activeFilterNameMap: {}
 };
 
 export default function (state = initialState, action) {
@@ -26,17 +26,17 @@ export default function (state = initialState, action) {
   case FILTER_ACTIVE_CHANGED:
     return {
       ...state,
-      activeFilterIdsMap: {
-        ...state.activeFilterIdsMap,
-        [action.filter.id]: action.active
+      activeFilterNameMap: {
+        ...state.activeFilterNameMap,
+        [action.filter.name]: action.active
       }
     };
   case FILTER_DELETED:
     return {
       ...state,
-      activeFilterIdsMap: {
-        ...state.activeFilterIdsMap,
-        [action.filter.id]: false
+      activeFilterNameMap: {
+        ...state.activeFilterNameMap,
+        [action.filter.name]: false
       }
     };
   default:
