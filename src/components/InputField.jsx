@@ -1,14 +1,11 @@
 import React, { PropTypes } from 'react';
 
 const InputField = ({name, inputType = 'text', label, autofocus = false, onChange, value}) => {
-  const valueLink = {
-    value,
-    requestChange: onChange
-  };
+  const handleChange = (event) => {onChange(event.target.value)};
   return (
     <div className="input-wrapper">
       <label htmlFor={name}>{label}</label>
-      <input type={inputType} id={name} name={name} valueLink={valueLink} autoFocus={autofocus}/>
+      <input type={inputType} id={name} name={name} value={value} onChange={handleChange} autoFocus={autofocus}/>
     </div>
   );
 };

@@ -1,14 +1,11 @@
 import React, { PropTypes } from 'react';
 
 const SelectField = ({name, label, onChange, value, options}) => {
-  const valueLink = {
-    value,
-    requestChange: onChange,
-  };
+  const handleChange = (event) => {onChange(event.target.value)};
   return (
     <div className="input-wrapper">
       <label htmlFor={name}>{label}</label>
-      <select name={name} valueLink={valueLink}>
+      <select name={name} value={value} onChange={handleChange}>
         {options.map(o => (<option key={o.value} value={o.value}>{o.label}</option>))}
       </select>
     </div>

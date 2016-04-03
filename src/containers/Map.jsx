@@ -44,8 +44,8 @@ class Map extends React.Component {
         />
         <FilterContainer
           filters = {filters}
-          addFilterHandler = {f => dispatch(addFilter(f))}
-          activateFilterHandler = {(f, active) => dispatch(setFilterActive(f, active))}
+          onAddFilter = {f => dispatch(addFilter(f))}
+          onFilterButtonPressed = {(f, active) => dispatch(setFilterActive(f, active))}
         />
         { tweet }
       </div>

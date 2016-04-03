@@ -1,7 +1,12 @@
 import React, {PropTypes} from 'react'
-import WithState from '../containers/WithState.jsx';
+import WithState from '../util/withState.js';
 import InputField from './InputField.jsx'
 import SelectField from './SelectField.jsx'
+
+const formatHashTags = (hashtagString) => {
+  return hashtagString.split(' ').filter(word =>word.indexOf('#') === 0)
+    .map(hashtag => hashtag.substr(1));
+};
 
 const FilterForm = ({updateState, state, onSubmit}) => {
   const colors = [
@@ -15,10 +20,8 @@ const FilterForm = ({updateState, state, onSubmit}) => {
     {value: "green", label:"Green"}
   ];
   const formatState = state => {
-    const formatHashtags = state.hashtags.split(' ').filter(word => {
-      return word.indexOf('#') === 0;
-    }).map(hashtag => hashtag.substr(1));
-    return Object.assign({}, state, {hashtags: formatHashtags})
+    const formattedHashtags = formatHashTags(state.hashtags);
+    return Object.assign({}, state, {hashtags: formattedHashtags})
   };
   return (
     <form className="filter-form">
