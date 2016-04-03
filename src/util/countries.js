@@ -247,16 +247,12 @@ const isoCountries = {
   'ZW': 'Zimbabwe'
 };
 
-function getCountryName (countryCode) {
-  countryCode = String(countryCode).toUpperCase();
-  if (isoCountries.hasOwnProperty(countryCode)) {
-    return isoCountries[countryCode];
+export function getCountryName (countryCode) {
+  const cc = String(countryCode).toUpperCase();
+  if (isoCountries.hasOwnProperty(cc)) {
+    return isoCountries[cc];
   } else {
     console.log('COULD NOT FIND COUNTRY: ', countryCode);
     return countryCode;
   }
 }
-
-export default {
-  getFromISO: getCountryName
-};
