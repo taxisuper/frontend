@@ -1,23 +1,16 @@
-var fs = require('fs');
 var http = require('http');
-var util = require('util');
+var fs = require('fs');
 var express = require('express');
-var history = require('connect-history-api-fallback');
 var jsonServer = require('json-server');
 
 var webpack = require('webpack');
 var webpackDevMiddleware = require('webpack-dev-middleware');
 var webpackHotMiddleware = require('webpack-hot-middleware');
 var config = require('./webpack.config');
+var compiler = webpack(config);
 
 var port = 9999;
 var twitterConfigFile = './twitter.json';
-
-var app = express();
-
-var compiler = webpack(config);
-app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
-app.use(webpackHotMiddleware(compiler));
 
 function noCache(req, res, next) {
   res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
@@ -26,18 +19,19 @@ function noCache(req, res, next) {
   next();
 }
 
+var app = express();
+
+app.use(webpackDevMiddleware(compiler, {
+  noInfo: true,
+  publicPath: config.output.publicPath
+}));
+app.use(webpackHotMiddleware(compiler));
+
 app.use('/api', noCache, jsonServer.router(__dirname + '/db.json'));
-app.use(express.static('dist'));
 app.use(express.static('public'));
 // Send index.html for all other routes
 app.use(function(req, res) {
   res.sendFile(__dirname + '/public/index.html');
-});
-
-app.use(function(err, req, res, next) {
-  util.inspect(err);
-  console.error(err.stack);
-  res.status(500).send({ error: err.message });
 });
 
 var server = http.createServer(app);
