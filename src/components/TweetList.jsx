@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import Tweet from './Tweet';
 
-export default function TweetList({ tweets }) {
-  const tweets = tweets
+function TweetList({ tweets }) {
+  const tweetComps = tweets
     .slice(-3)
     .map(t => (
-      <li><Tweet key={ t.id } tweet={ t } /></li>
+      <li key={ t.id }><Tweet tweet={ t } /></li>
     ));
 
   return (
     <ul className="tweetlist">
-      { tweets }
+      { tweetComps }
   </ul>
   );
 }
+
+TweetList.propTypes = {
+  tweets: PropTypes.array.isRequired
+};
+
+export default TweetList;
