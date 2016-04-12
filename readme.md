@@ -1,4 +1,4 @@
-# React workshop
+# Redux workshop
 
 ### Task 7
 #### a)
@@ -19,9 +19,9 @@ The color indicates the marker color. The active flag indicates if the filter is
 For now, the only case the reducer will handle is `FILTER_ACTIVE_TOGGLE`.
 Create the corresponding action creator.
 
-We have created a filterList React component for you:
+We have created a FilterList React component for you:
 
-```
+```javascript
 function Filter({ name, color, active}) {
   const className = active ? '' : 'inactive';
   return (
