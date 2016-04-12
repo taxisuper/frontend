@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react';
 import Flag from './Flag';
-import { connect } from 'react-redux';
-import { saveTweet } from '../actions';
 
 class Tweet extends React.Component {
   shouldComponentUpdate(nextProps) {
@@ -9,7 +7,7 @@ class Tweet extends React.Component {
   }
 
   render() {
-    const { tweet, dispatch, color } = this.props;
+    const { tweet, color } = this.props;
 
     return (
       <div className="tweet">
@@ -30,7 +28,6 @@ class Tweet extends React.Component {
           <Flag countryCode={tweet.place.country_code} />
           <span className="tweet-country tweet-stats-desc">{ tweet.place.country }</span>
           <div className="tweet-city tweet-stats-desc">{ tweet.place.name }</div>
-          <button onClick={ () => dispatch(saveTweet(tweet)) }>SAVE</button>
         </div>
       </div>
     );
@@ -38,8 +35,7 @@ class Tweet extends React.Component {
 }
 
 Tweet.propTypes = {
-  tweet: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired
+  tweet: PropTypes.object.isRequired
 };
 
-export default connect()(Tweet);
+export default Tweet;
