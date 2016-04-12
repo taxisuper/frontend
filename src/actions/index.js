@@ -6,7 +6,7 @@ export const TWEET_SAVED = 'TWEET_SAVED';
 export const SAVED_TWEETS_FETCH = 'SAVED_TWEETS_FETCH';
 export const FILTER_ADDED = 'FILTER_ADDED';
 export const FILTER_DELETED = 'FILTER_DELETED';
-export const FILTER_ACTIVE_CHANGED = 'FILTER_ACTIVE_CHANGED';
+export const FILTER_ACTIVE_TOGGLE = 'FILTER_ACTIVE_TOGGLE';
 
 export function newTweet(tweet) {
   return {
@@ -72,7 +72,7 @@ export function deleteFilter(filter) {
 
 export function toggleFilterActive(filter) {
   return {
-    type: FILTER_ACTIVE_CHANGED,
+    type: FILTER_ACTIVE_TOGGLE,
     filter
   };
 }

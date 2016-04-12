@@ -1,7 +1,7 @@
 import {
   FILTER_ADDED,
   FILTER_DELETED,
-  FILTER_ACTIVE_CHANGED
+  FILTER_ACTIVE_TOGGLE
 } from '../actions';
 
 const initialState = [
@@ -34,7 +34,7 @@ export default function (state = initialState, action) {
     ];
   case FILTER_DELETED:
     return state.filter(f => f.name !== action.filter.name);
-  case FILTER_ACTIVE_CHANGED:
+  case FILTER_ACTIVE_TOGGLE:
     return state.map(f => action.filter.name === f.name ? {...f, active: !f.active} : f)
   default:
     return state;
