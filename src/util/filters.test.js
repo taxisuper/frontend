@@ -1,18 +1,6 @@
 import expect from 'expect';
 
-import { getCountryName } from '../src/util/countries';
-import { findFilterMatch } from '../src/util/filters';
-
-describe('getCountryName', () => {
-  it("should get 'Norway' for country code 'no'", () => {
-    expect(getCountryName('no')).toBe('Norway');
-  });
-
-  it('should return the country code if the name for that code does not exist', () => {
-    const invalidCountryCode = 'asdadqasda';
-    expect(getCountryName(invalidCountryCode)).toBe(invalidCountryCode);
-  });
-});
+import { findFilterMatch } from './filters';
 
 describe('findFilterMatch', () => {
   const textFilter = {
@@ -52,3 +40,4 @@ describe('findFilterMatch', () => {
     expect(findFilterMatch(tweet, filters)).toBe(undefined);
   });
 });
+
