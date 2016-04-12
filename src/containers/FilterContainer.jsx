@@ -9,16 +9,16 @@ import FilterList from '../components/FilterList.jsx'
 const FilterContainer = ({state, updateState, filters, onAddFilter, onFilterButtonPressed}) => {
     return(
         <div className="filter-container">
-          <h3>Filters</h3>
+          <h2>Filters & Stats</h2>
+          <FilterList
+            filters={ filters }
+            onFilterActiveChange={onFilterButtonPressed}
+          />
           <If condition={state.formVisibility}>
             <IfChild>
               <FilterForm onSubmit={filter => {onAddFilter(filter); updateState({formVisibility: false});}}/>
             </IfChild>
             <IfChild>
-              <FilterList
-                filters={ filters }
-                onFilterActiveChange={onFilterButtonPressed}
-              />
               <button onClick={() => updateState({formVisibility: true})}>New filter</button>
             </IfChild>
           </If>

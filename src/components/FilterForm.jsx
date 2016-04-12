@@ -25,6 +25,7 @@ const FilterForm = ({updateState, state, onSubmit}) => {
   };
   return (
     <form className="filter-form">
+      <h3>New filter</h3>
       <InputField name="name" autofocus={true} label="Name"
                   value={state.name} onChange={name => updateState({name})}/>
       <InputField name="hashtag" label="#"

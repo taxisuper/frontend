@@ -1,27 +1,14 @@
 import React, { PropTypes } from 'react';
 import { GoogleMap, Marker, GoogleMapLoader } from 'react-google-maps';
-import { findFilterMatch } from '../util/filters';
 
-function TweetMap({
-  tweets,
-  showTweet,
-  currentTweet,
-  filters
-}) {
+
+function TweetMap({tweets, showTweet}) {
   const markers = tweets.map(t => {
     const callback = () => {
       showTweet(t.id);
     };
 
-    const filterMatch = findFilterMatch(t, filters);
-    const color = filterMatch ? filterMatch.color : null;
-
-    let icon = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
-    if (t === currentTweet) {
-      icon = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
-    } else if (color) {
-      icon = `http://maps.google.com/mapfiles/ms/icons/${color}-dot.png`;
-    }
+    const icon = `http://maps.google.com/mapfiles/ms/icons/${t.color}-dot.png`;
 
     return (
       <Marker

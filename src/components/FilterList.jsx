@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
-function Filter({ name, color, isActive, onNameClick }) {
-  const className = isActive ? '' : 'inactive';
+function Filter({ name, color, active, onNameClick }) {
+  const className = active ? '' : 'inactive';
   return (
     <span className={ className } onClick={ onNameClick }>
       <div className={`circle ${color} ${className}`}/>
@@ -23,7 +23,7 @@ function FilterList({ filters, onFilterActiveChange }) {
         <li key={ f.name }>
           <Filter
             {...f}
-            onNameClick={ () => onFilterActiveChange(f, !f.isActive) }
+            onNameClick={ () => onFilterActiveChange(f) }
           />
         </li>)}
     </ul>

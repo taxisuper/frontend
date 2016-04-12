@@ -1,14 +1,12 @@
 import {
   TWEET_RECEIVED,
   TWEET_SELECTED,
-  FILTER_ACTIVE_CHANGED,
   FILTER_DELETED
 } from '../actions';
 
 const initialState = {
   tweetCount: 0,
   currentTweet: null,
-  activeFilterNameMap: {}
 };
 
 export default function (state = initialState, action) {
@@ -23,19 +21,11 @@ export default function (state = initialState, action) {
       ...state,
       currentTweet: action.tweet
     };
-  case FILTER_ACTIVE_CHANGED:
-    return {
-      ...state,
-      activeFilterNameMap: {
-        ...state.activeFilterNameMap,
-        [action.filter.name]: action.active
-      }
-    };
   case FILTER_DELETED:
     return {
       ...state,
-      activeFilterNameMap: {
-        ...state.activeFilterNameMap,
+      activeFilterMap: {
+        ...state.activeFilterMap,
         [action.filter.name]: false
       }
     };
