@@ -17,7 +17,7 @@ App.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    tweetCount: state.view.tweetCount
+    tweetCount: state.tweets.length
 });
 
 export default connect(mapStateToProps)(App);

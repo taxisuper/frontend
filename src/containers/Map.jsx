@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import { selectTweet, setFilterActive, addFilter } from '../actions';
+import { selectTweet, toggleFilterActive, addFilter } from '../actions';
+import { getViewTweets } from '../util/selectors.js';
 
 import TweetMap from '../components/TweetMap';
 import CountryList from '../components/CountryList';
@@ -32,20 +33,16 @@ class Map extends React.Component {
       <CurrentTweet tweet={ currentTweet } /> :
       null;
 
-    const activeFilters = filters.filter(f => f.isActive);
-
     return (
-      <div>
+      <div className="map">
         <TweetMap
           tweets={ tweets }
-          currentTweet={ currentTweet }
           showTweet={ this.showTweet }
-          filters={ activeFilters }
         />
         <FilterContainer
           filters = {filters}
           onAddFilter = {f => dispatch(addFilter(f))}
-          onFilterButtonPressed = {(f, active) => dispatch(setFilterActive(f, active))}
+          onFilterButtonPressed = {(f, active) => dispatch(toggleFilterActive(f, active))}
         />
         { tweet }
       </div>
@@ -63,13 +60,10 @@ Map.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  tweets: state.tweets,
+  tweets: getViewTweets(state),
   currentTweet: state.view.currentTweet,
   countries: state.countries,
-  filters: state.filters.map(f => ({
-    ...f,
-    isActive: state.view.activeFilterNameMap[f.name]
-  }))
+  filters: state.filters
 });
 
 export default connect(mapStateToProps)(Map);

@@ -14,15 +14,10 @@ function matchesText(tweet) {
     tweet.text.indexOf(filter.text) > -1;
 }
 
-function matchesGeo(tweet) {
-  return filter => false;
-}
-
-function filterMatch(tweet) {
+export function filterMatch(tweet) {
   const matchers = [
     matchesHashtags,
     matchesText,
-    matchesGeo
   ].map(m => m(tweet));
 
   return filter => matchers.some(m => m(filter));

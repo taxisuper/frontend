@@ -70,10 +70,9 @@ export function deleteFilter(filter) {
   };
 }
 
-export function setFilterActive(filter, active) {
+export function toggleFilterActive(filter) {
   return {
     type: FILTER_ACTIVE_CHANGED,
-    filter,
-    active
+    filter
   };
 }
