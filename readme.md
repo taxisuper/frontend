@@ -58,20 +58,20 @@ Let's try creating that store again:
 createStore(reducer)
 ```
 
-Success! 
+Success!
 Well, we still have a white page, so we're not quite finished yet.
 Let's print the number in our store to the screen.
 
 ### B: Retrieving the state from the store
 
 The `store` object has a function `getState` that's used to retrieve the current state.
-We'll use the good, old DOM API to 
+We'll use the good, old DOM API to
 
 ```javascript
 document.body.innerText = store.getState();
 ```
 
-Great! Now we've initialized a store object to contain all our data, created a simple pass-through reducer that describes our state mutations and rendered the store content to the DOM.The next logical step from here would be to perform changes to our state. 
+Great! Now we've initialized a store object to contain all our data, created a simple pass-through reducer that describes our state mutations and rendered the store content to the DOM.The next logical step from here would be to perform changes to our state.
 
 ### C: Changing our state
 
@@ -106,7 +106,7 @@ Our reducer function actually gets the action passed in as the second argument, 
 
 You'll see that upon creating the store, redux will trigger an action called `@@redux/INIT` which is used to set up the initial state in your reducer. Upon clicking the window, you'll see your own `USER_CLICKED`-actions appear.
 
-The last thing we need to do in order to complete the Redux cycle is to update the state. 
+The last thing we need to do in order to complete the Redux cycle is to update the state.
 
 This involves making our reducer react to certain types of actions - `'USER_CLICKED'`, for instance.
 Use an `if`-statement in your reducer function to increment the state only when an action of this type is dispatched.
@@ -237,6 +237,72 @@ Lets start by changing the initial state from a single number (our counter) to a
 *Some practicalities from here on out: we've created CSS for the workshop, so you won't have to touch the CSS files at all (unless you want to spice it up with your own additions, of course). To make this work, we'll provide you with the HTML structure a component needs to output, or simply the CSS class name the top level node of a component.*
 
 
+### Task 4: the beginnings of a larger application
+Okay, now we're showing only one tweet at a time. We can't really see what people are tweeting about as new tweets replace the older ones faster than we can read. What if we put them in a list instead?
+
+#### Step a: `App.jsx`
+As this will be the beginnings of a larger application we want to create a root component for our app. Create this component in `containers/App.jsx`. This component should take a list called `tweets` as a `prop` and render an `<ul>` with the css class `tweetlist` and `<li>`s containing a `<Tweet>` for each of the tweets.
+
+Back in our store listener function in `index.js` we now want to render the `<App>` with all the tweets we get from the store. If you open the application you should see an ever growing list of incoming tweets.
+
+
+#### Step b: `react-redux`
+Now, we don't really want to handle store changes and rendering of the app manually (by having our own store subscriber and calling `render`), and this is where the package `react-redux` helps us. `react-redux` has a component called `<Provider>` that takes our `store` as a prop and takes care of subscribing to the store and updating its children.
+
+So, in `index.js`, remove the `store.subscribe` bit and replace it with
+
+```javascript
+render(
+  <Provider store={ store }>
+    <App />
+  </Provider>,
+  document.querySelector('#app')
+);
+```
+
+You might notice that we `<App>` is not getting the `tweets` list as a prop here. This is because we want `<App>` to get them from the store itself. How do we do this from `<App>`? Again, `react-redux` comes to the rescue with its `connect` function. `connect` is a so-called higher order component that simply put "connects" a component to our redux store. `connect`'s first argument is a function gets the store `state` as an argument and returns an object. This function is called `mapStateToProps` (it makes sense, doesn't it?). The object returned from `mapStateToProps` will be given as props to the component that `connect` wraps.
+
+Your task now is to write a `mapStateToProps` function that takes the store `state` as an agrument and returns an object with the list of `tweets` as one of the properties. When you have done this, export the `<App>` component like this:
+```javascript
+export default connect(mapStateToProps)(App);
+```
+
+Now check that the list of tweets is still rendered and updated when new tweets come in.
+
+#### Step c: refactoring
+It isn't immediately obvious that `<App>` renders a list of tweets, and we may want to render more things than just this tweet list in our app so we want to refactor a bit.
+
+Move the rendering of the tweet list to `components/TweetFeed.jsx`. The tweets should be passed down to this component from `App.jsx` (we don't need to `connect` `TweetFeed`).
+There should be no visible changes from before but we have the beginnings of a nicer application architecture.
+
+#### Step d: developer tools
+As our application is starting to grow we want to take advantage of a really nice tool that exists for `redux` applications, namely the `redux-devtools`. This will help us during application development by allowing us to see every action that flows through our application and how they affect the store `state`.
+
+We have done some of the boring setup so you don't have to. Go to `index.js` and replace your store initialization with
+```javascript
+import configureStore from './configureStore';
+const store = configureStore();
+```
+
+While you're at it, import the `<DevTools>` component we've made (`./containers/DevTools`) and modify your `render` call so it looks like this:
+```javascript
+render(
+  <Provider store={ store }>
+    <div>
+      <App />
+      <DevTools />
+    </div>
+  </Provider>,
+  document.querySelector('#app')
+);
+```
+
+When you now open your app you should see a nice dark blue thingy on the right side of the screen that keeps showing `TWEET_RECEIVED`. Pretty cool, right? You can even hide the devtools by pressing `ctrl+h` and move it by pressing `ctrl+q`!
+
+Because of the large amount of tweets coming in we won't be able to notice other actions so we want to filter these out. Go to `containers/DevTools` and do as the instructions there say.
+Now when you open your app you will only see the `@@INIT` action in the devtools, along with the store `state` after this initial action.
+
+
 ### Task 7
 #### a)
 To make our twitter stream a bit more interesting, we can implement a filtering mechanism.
@@ -301,6 +367,3 @@ When you click on a filter, you should be able to toggle the active flag.
 
 #### b)
 Now it is time to actually filter the tweets.
-
-
-
