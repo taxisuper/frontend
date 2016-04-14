@@ -7,6 +7,7 @@ export const SAVED_TWEETS_FETCH = 'SAVED_TWEETS_FETCH';
 export const FILTER_ADDED = 'FILTER_ADDED';
 export const FILTER_DELETED = 'FILTER_DELETED';
 export const FILTER_ACTIVE_TOGGLE = 'FILTER_ACTIVE_TOGGLE';
+export const ROUTE_CHANGED = 'ROUTE_CHANGED';
 
 export function newTweet(tweet) {
   return {
@@ -74,5 +75,12 @@ export function toggleFilterActive(filter) {
   return {
     type: FILTER_ACTIVE_TOGGLE,
     filter
+  };
+}
+
+export function changeRoute(route) {
+  return {
+    type: ROUTE_CHANGED,
+    route
   };
 }
