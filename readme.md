@@ -474,6 +474,25 @@ Update `mapStateToProps` to also send the active route to our `App` component. W
 Now you should be able to click the nice links and see that the view switches between the tweet feed and the other view.
 
 ## Task 6: Displaying Tweets On A Map
+Showing an ever updating list of tweets is pretty cool, but what if we want to see where each tweet was sent from?
+Luckily for you someone left some files in your project. Take a look at `components/CurrentTweet.jsx`, `components/TweetMap.jsx` and `containers/Map.jsx`.
+
+Remember in the last task where we told you that you could render whatever you wanted when the active route is `/`?
+Now try rendering the Map component there instead!
+
+### Step I: Clicking A Tweet
+Wouldn't it be cool if we could click a tweet marker on the map and see what that person was thinking about?
+
+As you may have noticed by looking through the files mentioned above there is a click handler wired up to tweet markers on the map. Currently the app complains when you click a marker. Fix this by creating the action creator that `<Map>` tries to call.
+
+Now the app is not complaining anymore, but nothing happens. Let's create another reducer to handle the action you returned from the action creator.
+Call this reducer `reducers/view.js`, as it will contain view state, and make it have an object with a property `currentTweet` as its state shape.
+
+At this point you should be able to click a marker on the map and see the tweet appear on the screen!
+
+##### Do the following:
+* Create `setCurrentTweet` action creator
+* Create `reducers/view.js`
 
 
 ## Task 7: Filtering Tweets
