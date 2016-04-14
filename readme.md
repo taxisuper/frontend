@@ -1,12 +1,8 @@
 # Twitter Dashboard 2.0: Redux Revisited
 
-1. Start by install dependencies:
+1. Start by installing dependencies: `npm install`
 
-`npm install`
-
-2. Run the build script in watch mode:
-
-`npm run start`
+2. Run the build script in watch mode: `npm run start`
 
 3. Visit the application on [http://localhost:9999/](http://localhost:9999/)
 
