@@ -286,9 +286,8 @@ Now, we don't really want to handle store changes and rendering of the app manua
 
 So, in `index.js`, remove the `store.subscribe` bit and replace it with
 
-*TODO: importering av Provider*
-
 ```javascript
+import { Provider } from 'react-redux';
 render(
   <Provider store={ store }>
     <App />
@@ -297,7 +296,7 @@ render(
 );
 ```
 
-You might notice that `<App>` is not getting the `tweets` list as a prop here. This is because we want `<App>` to get them from the store itself. How do we do this from `<App>`? Again, `react-redux` comes to the rescue with its `connect` function. 
+You might notice that `<App>` is not getting the `tweets` list as a prop here. This is because we want `<App>` to get them from the store itself. How do we do this from `<App>`? Again, `react-redux` comes to the rescue with its `connect` function.
 
 `connect` is a so-called higher order component that, simply put, "connects" a component to our redux store. `connect`'s first argument is a function gets the store `state` as an argument and returns an object. This function is called `mapStateToProps` (it makes sense, doesn't it?). The object returned from `mapStateToProps` will be given as props to the component that `connect` wraps.
 
@@ -325,9 +324,8 @@ const store = configureStore();
 
 While you're at it, import the `<DevTools>` component we've made (`./containers/DevTools`) and modify your `render` call so it looks like this:
 
-*TODO: IMPORT DEVTOOLS*
-
 ```javascript
+import DevTools from './containers/DevTools';
 render(
   <Provider store={ store }>
     <div>
@@ -343,6 +341,102 @@ When you now open your app you should see a nice dark blue thingy on the right s
 
 Because of the large amount of tweets coming in we won't be able to notice other actions so we want to filter these out. Go to `containers/DevTools` and do as the instructions there say.
 Now when you open your app you will only see the `@@INIT` action in the devtools, along with the store `state` after this initial action.
+
+## Task 5: Creating your own router
+So far our whole app state has only consisted of a list of tweets. Now that we want to create our own little router we also need the current route as part of our app state.
+
+### Step I: A wild reducer appears
+In `reducers/index.js` create another reducer function called `routeReducer`. Its initial state should be an empty string.
+This reducer should handle an action of type `ROUTE_CHANGED` that has a `route` attached to it. Also create the corresponding action creator (in `actions/index.js`).
+
+### Step II: Combining reducers
+To get the current route as part of our application state we have to somehow combine our two reducers (`tweetsReducer` and `routeReducer`) into an object.
+
+Let's create another reducer called `rootReducer`. Its initial state should be an object like this:
+```javascript
+{
+  cards: [],
+  route: ''
+}
+```
+
+Now, this reducer should not handle any actions on is own, but rather delegate this to the other two reducers.
+
+---
+
+```javascript
+const initialState = {
+  cards: [],
+  route: ''
+}
+function rootReducer(state = initialState, action) {
+  return {
+    cards: cardsReducer(state.cards, action),
+    route: routeReducer(state.route, action)
+  };
+}
+```
+
+This works, but will become cumbersome when we have more than two reducers. Luckily, `redux` provides the aptly named function `combineReducers`. This function turns an object whose values are reducers into a combined reducer that works like the one we made. The shape of the resulting combined `state` will match the keys of the passed object of reducers.
+
+In our case it will look like this:
+```javascript
+import { combineReducers } from 'redux';
+
+const rootReducer = combineReducers({
+  cards: cardsReducer,
+  route: routeReducer
+});
+
+export default rootReducer;
+```
+Notice that we export this as default.
+
+Now, if you open the app you will see that the list of tweets is not working. Fix this.
+Hint: we changed the shape of the `state` so you will have to modify the `mapStateToProps` function we created earlier.
+
+When you're done with this the app should work exactly as before.
+
+### Step III: `redux`-enabled links!
+We are making a single page app, and as such we want to be able to navigate around our app without needing round trips to the server. We have done the ground work for this by having a place to store the current route (the store) and a way to change the active route (our `changeRoute` actionCreator).
+
+Now, create a new component, `containers/Link.jsx`.
+This component should accept three props:
+1. `to` - relative URL
+1. `dispatch` - the same function as we earlier called on the `store` object
+1. `className` - a regular CSS class
+
+The component should render an `<a>` with ``href={ `#${to}` }`` and an `onClick` function that calls dispatch with the `changeRoute` action with the url passed as a prop.
+
+Earlier when we dispatched actions we had access to our `store` object but here we don't. Again, `react-redux`'s `connect` function comes to the rescue. When we "connect" a component it will always get the `dispatch` function as a `prop`. Here we do not need anything other than `dispatch`, so we can just connect our link component like this (remember to import `connect` from `react-redux`):
+
+```javascript
+export default connect()(Link);
+```
+
+### Step IV: Navigating between views
+A nice place to show these links is in `containers/App.jsx`.
+Place the following markup above where you're rendering `TweetFeed` (remember to import `<Link>`):
+```html
+<div className="app-header">
+  <div>
+    <h1 className="heading">Twitter redux stuff</h1>
+    <div className="menu-item">
+      <Link to="/" className="img img-icon img-icon-dashboard"/>
+      <Link to="/feed" className="img img-icon img-icon-settings"/>
+    </div>
+  </div>
+</div>
+```
+
+Lastly we want to actually render one thing when the active route is `/` and another thing when it is `/feed`.
+
+Update `mapStateToProps` to also send the active route to our `App` component. When the route is `/feed` we want to render our `TweetFeed` component, and when the route is `/` you can render whatever you want.
+
+**TODO: <If>**
+
+Now you should be able to click the nice links and see that the view switches between the tweet feed and the other view.
+
 
 
 ## Task 7
@@ -426,7 +520,7 @@ If you have used the correct CSS classes, both the Map and the Feed should now c
 
 
 ## Task 8: Creating new filters
-### Step I: 
+### Step I:
 It would be nice to be able to add new filters in the GUI instead of changing the initial state of the `filters`-reducer every time we want a new filter.
 For this, we need a form component with the exotic name `FilterForm`.
 We will start by only rendering the html, with no form logic.
