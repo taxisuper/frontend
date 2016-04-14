@@ -16,6 +16,7 @@ export function updateFilterForm(field) {
     field
   }
 }
+export const ROUTE_CHANGED = 'ROUTE_CHANGED';
 
 export function newTweet(tweet) {
   return {
@@ -83,5 +84,12 @@ export function toggleFilterActive(filter) {
   return {
     type: FILTER_ACTIVE_TOGGLE,
     filter
+  };
+}
+
+export function changeRoute(route) {
+  return {
+    type: ROUTE_CHANGED,
+    route
   };
 }

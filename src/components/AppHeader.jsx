@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router'
+import Link from '../containers/Link';
 
 import Timer from './Timer';
 

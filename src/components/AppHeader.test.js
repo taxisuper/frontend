@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import { Link } from 'react-router';
+import Link from '../containers/Link';
 
 import AppHeader from './AppHeader';
 

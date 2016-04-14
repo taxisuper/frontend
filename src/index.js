@@ -6,7 +6,7 @@ import configureStore from './configureStore';
 import { newTweet } from './actions';
 import {findFilterMatch} from './util/filters.js';
 
-import Router from './Router';
+import App from './containers/App';
 import DevTools from './containers/DevTools';
 
 const MAX_TWEETS = 5000;
@@ -25,7 +25,7 @@ ws.onmessage = ms => {
 render(
   <Provider store={ store }>
     <div>
-      <Router />
+      <App />
       <DevTools />
     </div>
   </Provider>,
