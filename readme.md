@@ -1,7 +1,7 @@
 # Redux workshop
 ## Introduction
 
-### Task 1: Basic Redux application flow
+## Task 1: Basic Redux application flow
 
 In this section we'll set up a really simple app from scratch. You'll keep track of a single number starting at zero, incrementing it once for every click inside the browser window. We'll break this rather simple task into four steps, demonstrating the core redux concepts of a store, actions and reducers.
 
@@ -14,7 +14,7 @@ We'll also add a final step E where we introduce React and use it to render our 
 
 * E: Using React to render the app
 
-We'll be doing these tasks in the file `index.js` in the project root.
+We'll be doing these tasks in the file `src/index.js` in the project root.
 
 ### A: Creating a store.
 
@@ -145,7 +145,8 @@ React is a wildly popular frontend library by Facebook for creating graphical us
 We've created a separate document explaining the very basics of React, located [here](./react-intro.md).
 
 If you're new to React you should read that before continuing on with the workshop.
-If you've already become somewhat acquainted, it should be safe to skip it
+
+If you've already become somewhat acquainted, it should be safe to skip it.
 
 ### Creating a component
 
@@ -181,7 +182,7 @@ render(component, document.querySelector('#app'))
 
 ## Task 2: Rendering a Tweet Component
 
-Now we've explored the basic concepts of an application built using React and Redux. The rest of the workshop consist mostly of applying these concepts at scale - e.g how do we build big applications, how do we do asynchronous network calls, how do compose our component hierarchy, etc.
+Now we've explored the basic concepts of an application built using React and Redux. The rest of the workshop consist mostly of applying these concepts at scale - e.g how do we build real world applications, how do we do asynchronous network calls, how do compose our component hierarchy, etc.
 
 We'll do this by building a Twitter Dashboard app, as you've probably understood by now. Let's do the small and initial step of this process by creating a React component that'll render a Tweet. This will be a central part of our app and we'll use and extend it throughout the rest of the workshop.
 
@@ -211,7 +212,7 @@ It contains hard coded tweet data, which we'll be replacing with real, live data
       </div>
 ```
 
-In summary:
+Do the following:
 
 * create a Tweet component and put it in a new file in `/components`
 * the component should return the given HTML structure
@@ -220,36 +221,34 @@ In summary:
 
 When this is done you should se a tweet rendered on the page.
 
-The next step is to integrate the adding of a tweet to our redux workflow. Instead of manually sending in some hardcoded data from a file to the component, we should be getting the tweet data from the state, and adding it through dispatching an action.
+The next step is to integrate the adding of a tweet to our redux flow. Instead of manually sending in some hardcoded data from a file to the component, we should be getting the tweet data from the store, and adding the tweet to the store by dispatching an action.
 
 You will need to do the following:
 
 * change the initial state from a single number (the counter) to a an empty object, in anticipation of a tweet
-* dispatch an action `'ADD_TWEET'` containing the tweet data
-* 
+* dispatch an action `'TWEET_RECEIVED'` containing the tweet data
+* make the reducer return the received tweet as the new state
 
-Lets start by changing the initial state from a single number (our counter) to an empty object. This is done in our reducer, by using ES6 default parameter syntax as previously discussed.
-
-
-
-##### A note on CSS and HTML
-
-*Some practicalities from here on out: we've created CSS for the workshop, so you won't have to touch the CSS files at all (unless you want to spice it up with your own additions, of course). To make this work, we'll provide you with the HTML structure a component needs to output, or simply the CSS class name the top level node of a component.*
+## Task 3: Receiving real tweets from the Twitter API
 
 
-### Task 4: the beginnings of a larger application
+## Task 4: the beginnings of a larger application
 Okay, now we're showing only one tweet at a time. We can't really see what people are tweeting about as new tweets replace the older ones faster than we can read. What if we put them in a list instead?
 
-#### Step a: `App.jsx`
-As this will be the beginnings of a larger application we want to create a root component for our app. Create this component in `containers/App.jsx`. This component should take a list called `tweets` as a `prop` and render an `<ul>` with the css class `tweetlist` and `<li>`s containing a `<Tweet>` for each of the tweets.
+#### Step I: `App.jsx`
+As this will be the beginning of a larger application we want to create a root component for our app. Create this component in `containers/App.jsx`. This component should take a list called `tweets` as a `prop` and render an `<ul>` with the css class `tweetlist` and `<li>`s containing a `<Tweet>` for each of the tweets.
+
+*eksempel HTML her*
 
 Back in our store listener function in `index.js` we now want to render the `<App>` with all the tweets we get from the store. If you open the application you should see an ever growing list of incoming tweets.
 
 
-#### Step b: `react-redux`
+#### Step II: `react-redux`
 Now, we don't really want to handle store changes and rendering of the app manually (by having our own store subscriber and calling `render`), and this is where the package `react-redux` helps us. `react-redux` has a component called `<Provider>` that takes our `store` as a prop and takes care of subscribing to the store and updating its children.
 
 So, in `index.js`, remove the `store.subscribe` bit and replace it with
+
+*TODO: importering av Provider*
 
 ```javascript
 render(
@@ -260,22 +259,24 @@ render(
 );
 ```
 
-You might notice that we `<App>` is not getting the `tweets` list as a prop here. This is because we want `<App>` to get them from the store itself. How do we do this from `<App>`? Again, `react-redux` comes to the rescue with its `connect` function. `connect` is a so-called higher order component that simply put "connects" a component to our redux store. `connect`'s first argument is a function gets the store `state` as an argument and returns an object. This function is called `mapStateToProps` (it makes sense, doesn't it?). The object returned from `mapStateToProps` will be given as props to the component that `connect` wraps.
+You might notice that `<App>` is not getting the `tweets` list as a prop here. This is because we want `<App>` to get them from the store itself. How do we do this from `<App>`? Again, `react-redux` comes to the rescue with its `connect` function. 
 
-Your task now is to write a `mapStateToProps` function that takes the store `state` as an agrument and returns an object with the list of `tweets` as one of the properties. When you have done this, export the `<App>` component like this:
+`connect` is a so-called higher order component that, simply put, "connects" a component to our redux store. `connect`'s first argument is a function gets the store `state` as an argument and returns an object. This function is called `mapStateToProps` (it makes sense, doesn't it?). The object returned from `mapStateToProps` will be given as props to the component that `connect` wraps.
+
+Your task now is to write a `mapStateToProps` function that takes the store `state` as an argument and returns an object with the list of `tweets` as one of the properties. When you have done this, export the `<App>` component like this:
 ```javascript
 export default connect(mapStateToProps)(App);
 ```
 
 Now check that the list of tweets is still rendered and updated when new tweets come in.
 
-#### Step c: refactoring
+#### Step III: Refactoring
 It isn't immediately obvious that `<App>` renders a list of tweets, and we may want to render more things than just this tweet list in our app so we want to refactor a bit.
 
-Move the rendering of the tweet list to `components/TweetFeed.jsx`. The tweets should be passed down to this component from `App.jsx` (we don't need to `connect` `TweetFeed`).
+Move the rendering of the tweet list to `components/TweetFeed.jsx`. The tweets should be passed down to this component from `App.jsx` (we shouldn't need to `connect` `TweetFeed`).
 There should be no visible changes from before but we have the beginnings of a nicer application architecture.
 
-#### Step d: developer tools
+#### Step IV: Developer Tools
 As our application is starting to grow we want to take advantage of a really nice tool that exists for `redux` applications, namely the `redux-devtools`. This will help us during application development by allowing us to see every action that flows through our application and how they affect the store `state`.
 
 We have done some of the boring setup so you don't have to. Go to `index.js` and replace your store initialization with
@@ -285,6 +286,9 @@ const store = configureStore();
 ```
 
 While you're at it, import the `<DevTools>` component we've made (`./containers/DevTools`) and modify your `render` call so it looks like this:
+
+*TODO: IMPORT DEVTOOLS*
+
 ```javascript
 render(
   <Provider store={ store }>
@@ -297,19 +301,19 @@ render(
 );
 ```
 
-When you now open your app you should see a nice dark blue thingy on the right side of the screen that keeps showing `TWEET_RECEIVED`. Pretty cool, right? You can even hide the devtools by pressing `ctrl+h` and move it by pressing `ctrl+q`!
+When you now open your app you should see a nice dark blue thingy on the right side of the screen that keeps showing `TWEET_RECEIVED`. Pretty cool, huh? You can even hide the devtools by pressing `ctrl+h` and move it by pressing `ctrl+q`!
 
 Because of the large amount of tweets coming in we won't be able to notice other actions so we want to filter these out. Go to `containers/DevTools` and do as the instructions there say.
 Now when you open your app you will only see the `@@INIT` action in the devtools, along with the store `state` after this initial action.
 
 
-### Task 7
-#### a)
+## Task 7
+### Step I:
 To make our twitter stream a bit more interesting, we can implement a filtering mechanism.
 Let's say we filter the tweets based on text and hashtags.
 This way we can use the map to see in what parts of the world they talk about "Trump" for instance.
 Create a filter reducer that consists of an array of filters with the following data structure:
-```
+```javascript
 {
   color: 'yellow',
   name: 'Trump',
@@ -325,9 +329,10 @@ Create the corresponding action creator `toggleActiveFilter()`.
 
 To display the filters, we need a filter component. Create the file `Filter.jsx` with a component that renders the following HTML when given a filter
 Substitute FILTERNAME and FILTERCOLOR with the values from the actual filter.
+
 ```html
-<span className="FILTERACTIVE" onClick={() => console.log('filter click')}>
- <div className="circle FILTERCOLOR" }/>
+<span className="FILTERACTIVE">
+ <div className="circle FILTERCOLOR" />
  FILTERNAME
 </span>
 ```
@@ -356,7 +361,7 @@ When the filter list is successfully displayed on both routes, you can start on 
 When you have finished this task, you should be able to toggle filters on and off by clicking on them.
 If you have used the correct css-classes, this should be visible in the ui.
 
-#### b)
+### Step II:
 Now it is time to actually filter the tweets. Let's start with the tweets displayed in the feed route.
 In the function `mapStateToProps` we pick up `filters`and `tweets`, thus, here we have everything we need.
 Make a utility function `getViewTweets(tweets, filters)` that returns an array of all the tweets that match one or more of the active filters.
@@ -376,18 +381,18 @@ Now, we are going to need the exact same functionality in the `Map` component.
 Let's make our utility function reusable by putting it into a separate file and exporting it into both the `Map` and `Feed` component.
 When you have completed this task, only tweets that match the active filter should show up in the Feed and on the Map.
 
-#### c) Adding color
+### Step III: Adding color
 Edit your `getViewTweets` function so that it not only filters the tweets, but also adds the prop color of the filter it matches.
 If it does not match any filters, add the color red.
-If you have used the correct css-classes, both the Map and The Feed should now clearly indicate which filter the tweets match.
+If you have used the correct CSS classes, both the Map and the Feed should now clearly indicate which filter the tweets match.
 
 
-### Task 8
-#### a)
+## Task 8: Creating new filters
+### Step I: 
 It would be nice to be able to add new filters in the GUI instead of changing the initial state of the `filters`-reducer every time we want a new filter.
 For this, we need a form component with the exotic name `FilterForm`.
-We will start by only rendering the html, with no form logic
-The html should look something like this
+We will start by only rendering the html, with no form logic.
+The HTML should look something like this
  ```html
  <form className="filter-form">
        <h3>New filter</h3>
@@ -416,16 +421,20 @@ The html should look something like this
 Tip: You may want to make a separate `InputField` component to DRY things up.
 
 Before we put the new component into our GUI, let's make a wrapper component `FilterContainer` that wraps both the `FilterForm` and the `FilterList`:
+
+```html
 <div className="filter-container">
   <h2>Filters & Stats</h2>
   <FilterList/>
   <FilterForm/>
 </div>
+```
+
 Note: remove the `className="filter-container"` prop in the `FilterList`, otherwise the html will look strange.
 Replace the `FilterList` child component in `Feed` and `Map` with your newly created `FilterContainer`.
 When you have completed this task there should be a form in the GUI.
 
-#### b)
+### Step II:
 In React, inputfields have two props that
 
 
