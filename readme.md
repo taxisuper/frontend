@@ -212,9 +212,9 @@ It contains hard coded tweet data, which we'll be replacing with real, live data
       </div>
 ```
 
-Do the following:
+##### Do the following:
 
-* create a Tweet component and put it in a new file in `/components`
+* create a Tweet component and put it in  `/components/Tweet.jsx` (existing file)
 * the component should return the given HTML structure
 * the component should accept a prop called `tweet`
 * the component should be passed a tweet datastructure, found in `example-tweet.js`
@@ -223,17 +223,55 @@ When this is done you should se a tweet rendered on the page.
 
 The next step is to integrate the adding of a tweet to our redux flow. Instead of manually sending in some hardcoded data from a file to the component, we should be getting the tweet data from the store, and adding the tweet to the store by dispatching an action.
 
-You will need to do the following:
+##### Do the following:
 
 * change the initial state from a single number (the counter) to a an empty object, in anticipation of a tweet
 * dispatch an action `'TWEET_RECEIVED'` containing the tweet data
 * make the reducer return the received tweet as the new state
+* make sure the component is rendered each time the state is updated
+
+Now you should still see the tweet on the page, but you should feel warm and fuzzy inside knowing that you've done it all according to protocol, Redux style!
 
 ## Task 3: Receiving real tweets from the Twitter API
 
+We'll tire quickly of the same old hardcoded tweet, even if its really cool that it's being added to our shiny Redux store through an action.
 
-## Task 4: the beginnings of a larger application
-Okay, now we're showing only one tweet at a time. We can't really see what people are tweeting about as new tweets replace the older ones faster than we can read. What if we put them in a list instead?
+Twitter has two data APIs allowing access to tweets as they are being tweeted all over the world - the Firehose API (which gives you everything) and the Sample API (which we'll use, as we don't want to crash our laptops due to the insane amount of data).
+
+We've already fixed the boring part of creating a Twitter developer account and setting up the stream connection to their API. All you need to do is to paste the following code snippet into your `index.js`:
+
+```javascript
+const ws = new WebSocket('ws://twitterws.herokuapp.com');
+const MAX_TWEETS = 1000;
+
+ws.onmessage = ms => {
+  const tweet = JSON.parse(ms.data);
+  if (store.getState().tweets.length < MAX_TWEETS) {
+	// add new tweet here by dispatching action
+  }
+};
+```
+
+Read the snippet carefully. As we are in the file where we also created the store, we'll have access to the store instance and thus access to the `getState` and `dispatch` methods directly. We'll query the state to see if we have more than a certain threshold number of tweets, and if not, we'll dispatch a certain action. This is due to the fact that we love our computers and we most certainly don't want them to have mental breakdown.
+
+Now that we're keeping more than just one tweet at a time, we'll have to change the shape of our state.  Also, now that our app is growing, having the reducer function in our `index.js` feels like the college student still living with his parents - lets move it into its own file.
+
+##### Do the following:
+
+* Change the initial state from just an object to an empty array.
+* Dispatch 'TWEET_RECEIVED' whenever a new tweet is received through the WebSocket
+* Move the tweet reducer function to `/reducers/tweets.js` (use `export default`)
+* Make sure the tweet reducer adds any new tweets that it receives to the array of existing tweets
+* Change the input (props) to our `<Tweet>` component to accept the last tweet in the array of received tweets
+
+Voila! Now our app is set up to receive lots of tweets from the streaming API, showing the previously received tweet on our screen.
+
+Cool stuff! We're slowly moving towards a real application.
+
+## Task 4: Building A Larger Application
+Did you know the average human adult can read about 300 words per minute? Since a tweet is capped at 140 characters, the amount of tweets we should be able to read per second is about... nevermind that.
+
+The important thing is that Twitters stream API is way faster than what we're actually able to absorb with our puny human comprehension. We can't really see what people are tweeting about as new tweets replace the older ones faster than we can read. Let's render a list of tweets instead!
 
 #### Step I: `App.jsx`
 As this will be the beginning of a larger application we want to create a root component for our app. Create this component in `containers/App.jsx`. This component should take a list called `tweets` as a `prop` and render an `<ul>` with the css class `tweetlist` and `<li>`s containing a `<Tweet>` for each of the tweets.
