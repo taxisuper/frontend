@@ -1,9 +1,6 @@
 # Redux workshop
 ## Introduction
 
-README.md
-
-
 ### Task 1: Basic Redux application flow
 
 In this section we'll set up a really simple app from scratch. You'll keep track of a single number starting at zero, incrementing it once for every click inside the browser window. We'll break this rather simple task into four steps, demonstrating the core redux concepts of a store, actions and reducers.
@@ -13,14 +10,16 @@ In this section we'll set up a really simple app from scratch. You'll keep track
 * C: Changing the state
 * D: Subscribing to store change and re-rendering
 
+We'll be doing this task in the file `index.js` in the project root.
+
 ### A: Creating a store.
 
 We need a store. Redux advocates having all your application data in a single object structure, but we'll need some layer of abstraction instead of just using a plain old javascript object.
 
-`redux` gives us a convenient method - `createStore`.
+`redux` gives us a convenient function - `createStore`.
 
 Use this to get yourself a shiny new store, ready to be filled with our application data.
-Try to call `createStore` without any params initially, and check the browser console.
+Try to call `createStore` without any parameters initially, and check the browser console.
 
 You'll see an error message. In the far left there's a reference to the file and line number that produced the error message.
 Click it to enter the `redux` source code to see what `createStore` was expecting.
@@ -28,11 +27,14 @@ Click it to enter the `redux` source code to see what `createStore` was expectin
 --
 
 Ok, so `createStore` is expecting this thing called a reducer as the first argument, which apparently is a function.
-The reducer is a core concept in redux - they are functions that describe how your state is changed, or mutated, as we like to say.
+The reducer is a core concept in redux - they are functions that perform transformations on your application data.
 
 The function signature for a reducer looks like this:
 
 `(state, action) => state`
+
+The responsibility of a reducer is simply to return a new version of the state whenever something happens.
+The event that something happens - it might be a user interaction, a timeout, ajax calls - are signalled using what is called `actions`. We'll come back to these in just a bit.
 
 Let's create a simple function just to get our store up and running. This example will serve our purpose:
 
@@ -101,7 +103,7 @@ You'll see that upon creating the store, redux will trigger an action called `@@
 The last thing we need to do in order to complete the Redux cycle is to update the state. 
 
 This involves making our reducer react to certain types of actions - `'USER_CLICKED'`, for instance.
-Use an `if`-statement in your reducer to increment the state.
+Use an `if`-statement in your reducer function to increment the state only when an action of this type is dispatched.
 
 Running your app with these additions yields disappointing results in the browser. The problem is that even tho we are updating the value of our state, we're not rendering this new state to the page. This brings us to the fourth and final step of the cycle:
 
@@ -145,7 +147,7 @@ function MyCoolComponent() {
 ```
 
 Whoa, what was that? HTML in my JavaScript? Get outta here, you fish-eyed swashbuckler!
-Long story short, this syntax called JSX allows us to transpile what looks like HTML into function calls that in turn will return objects describing HTML.
+Long story short, this syntax called JSX allows us to transpile what looks like HTML into something which React will transform into HTML when it's inserted in the browser.
 
 ```
 <div class="ninja">
