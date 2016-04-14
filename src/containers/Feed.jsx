@@ -36,7 +36,7 @@ Feed.propTypes = {
 const mapStateToProps = state => ({
   tweets: getViewTweets(state),
   countries: state.countries,
-  filters: state.filters
+  filters: state.filters,
 });
 
 export default connect(mapStateToProps)(Feed);

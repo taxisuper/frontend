@@ -1,14 +1,17 @@
 import React, {PropTypes} from 'react'
 import WithState from '../util/withState.js';
-import InputField from './InputField.jsx'
-import SelectField from './SelectField.jsx'
+import InputField from './../components/InputField.jsx'
+import SelectField from './../components/SelectField.jsx'
+import { updateFilterForm } from '../actions';
+import { connect } from 'react-redux';
 
 const formatHashTags = (hashtagString) => {
   return hashtagString.split(' ').filter(word =>word.indexOf('#') === 0)
     .map(hashtag => hashtag.substr(1));
 };
 
-const FilterForm = ({updateState, state, onSubmit}) => {
+const FilterForm = ({form, onSubmit, dispatch}) => {
+  const updateForm = (field) => dispatch(updateFilterForm(field));
   const colors = [
     {value: "blue", label:"Blue"},
     {value: "pink", label:"Pink"},
@@ -27,14 +30,14 @@ const FilterForm = ({updateState, state, onSubmit}) => {
     <form className="filter-form">
       <h3>New filter</h3>
       <InputField name="name" autofocus={true} label="Name"
-                  value={state.name} onChange={name => updateState({name})}/>
+                  value={form.name} onChange={name => updateForm({key: 'name', value: name})}/>
       <InputField name="hashtag" label="#"
-                  value={state.hashtags} onChange={hashtags => updateState({hashtags})}/>
+                  value={form.hashtags} onChange={hashtags => updateForm({key: 'hashtags', value: hashtags})}/>
       <InputField name="text" label="Text"
-                  value={state.text} onChange={text => updateState({text})}/>
+                  value={form.text} onChange={text => updateForm({key: 'text', value: text})}/>
       <SelectField name="color" label="Marker color" options={colors}
-                   value={state.color} onChange={color => updateState({color})} />
-      <button onClick={e => {e.preventDefault(); onSubmit(formatState(state));}}>Save</button>
+                   value={form.color} onChange={color => updateForm({key: 'color', value: color})} />
+      <button onClick={e => {e.preventDefault(); onSubmit(formatState(form));}}>Save</button>
     </form>
   )
 };
@@ -42,22 +45,11 @@ const FilterForm = ({updateState, state, onSubmit}) => {
 FilterForm.propTypes = {
   updateState: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  state: PropTypes.object.isRequired
+  form: PropTypes.object.isRequired
 };
 
-export default WithState({
-  name: '',
-  hashtags: '',
-  text: '',
-  color: '',
-  geo: {
-    start : {
-      lat: null,
-      long: null
-    },
-    end: {
-      lat: null,
-      long: null
-    }
-  }
-})(FilterForm)
+const mapStateToProps = state => ({
+  form: state.form
+});
+
+export default connect(mapStateToProps)(FilterForm);

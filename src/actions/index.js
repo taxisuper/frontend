@@ -7,6 +7,15 @@ export const SAVED_TWEETS_FETCH = 'SAVED_TWEETS_FETCH';
 export const FILTER_ADDED = 'FILTER_ADDED';
 export const FILTER_DELETED = 'FILTER_DELETED';
 export const FILTER_ACTIVE_TOGGLE = 'FILTER_ACTIVE_TOGGLE';
+export const FORM_UPDATED = 'FORM_UPDATED';
+export const FORM_SUBMITTED = 'FORM_SUBMITTED';
+
+export function updateFilterForm(field) {
+  return {
+    type: FORM_UPDATED,
+    field
+  }
+}
 export const ROUTE_CHANGED = 'ROUTE_CHANGED';
 
 export function newTweet(tweet) {

@@ -3,7 +3,7 @@ import React, {PropTypes} from 'react'
 import WithState from './../util/withState.js'
 import If from './If.jsx';
 import IfChild from './IfChild.jsx'
-import FilterForm from '../components/FilterForm.jsx';
+import FilterForm from './FilterForm.jsx';
 import FilterList from '../components/FilterList.jsx'
 
 const FilterContainer = ({state, updateState, filters, onAddFilter, onFilterButtonPressed}) => {

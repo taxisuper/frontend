@@ -314,6 +314,10 @@ button,
   color: inherit;
 }
 
+.inactive .circle {
+  display: none;
+}
+
 .circle {
   display: inline-block;
   border-radius: 50%;
