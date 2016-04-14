@@ -47,8 +47,8 @@ body {
 }
 
 .tweet-text {
-	font-size: 16px;
-	line-height: 20px;
+	font-size: 14px;
+	line-height: 18px;
 }
 
 .tweet-image {
@@ -64,12 +64,13 @@ body {
 
 .tweet-name {
 	font-weight: bold;
-	font-size: 12px;
+	font-size: 14px;
 }
 
 .tweet-screen-name {
-	font-size: 12px;
-	color: #707070;
+    margin-left: 3px;
+	font-size: 13px;
+	color: rgb(177, 187, 195);
 }
 
 .tweet-save-button {

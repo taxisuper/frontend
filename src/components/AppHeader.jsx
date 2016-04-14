@@ -10,7 +10,6 @@ export default function AppHeader({ tweetCount }) {
             <Link to="/" className="img img-icon img-icon-dashboard"/>
             <Link to="/feed" className="img img-icon img-icon-settings"/>
         </div>
-      <h1 className="heading">Twitterizer</h1>
       <div>
         <span className="tweet-stats-desc">seconds running</span>
         <strong><Timer /></strong>
