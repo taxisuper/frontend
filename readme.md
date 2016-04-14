@@ -424,7 +424,7 @@ Before we put the new component into our GUI, let's make a wrapper component `Fi
 
 ```html
 <div className="filter-container">
-  <h2>Filters & Stats</h2>
+  <h2>Filters</h2>
   <FilterList/>
   <FilterForm/>
 </div>

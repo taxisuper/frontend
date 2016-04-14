@@ -36,7 +36,7 @@ body {
 
 
 .tweet {
-    width: 180px;
+    width: 300px;
     background-color: #fff;
     color: #000;
 	position: relative;
@@ -186,7 +186,7 @@ label.standard {
 }
 
 .app-header {
-  width: 300px;
+  width: 160px;
   position: absolute;
   left: 40%;
   text-align: center;
@@ -198,9 +198,11 @@ label.standard {
 
 .app-header,
 .countrylist,
-.filter-container
+.filter-container,
+.current-tweet
 {
   background: white;
+  border: 1px solid #ccc;
 }
 
 .countrylist {

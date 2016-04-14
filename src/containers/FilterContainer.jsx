@@ -9,7 +9,7 @@ import FilterList from '../components/FilterList.jsx'
 const FilterContainer = ({state, updateState, filters, onAddFilter, onFilterButtonPressed}) => {
     return(
         <div className="filter-container">
-          <h2>Filters & Stats</h2>
+          <h2>Filters</h2>
           <FilterList
             filters={ filters }
             onFilterActiveChange={onFilterButtonPressed}
