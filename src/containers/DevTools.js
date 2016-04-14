@@ -6,12 +6,17 @@ import DockMonitor from 'redux-devtools-dock-monitor';
 
 import { TWEET_RECEIVED } from '../actions';
 
+const actionBlackList = [
+  'REMOVE THIS LINE AND UNCOMMENT THE NEXT'
+  // TWEET_RECEIVED
+];
+
 export default createDevTools(
   <DockMonitor
     toggleVisibilityKey="ctrl-h"
     changePositionKey="ctrl-q"
   >
-    <FilterMonitor blacklist={ [TWEET_RECEIVED] }>
+    <FilterMonitor blacklist={ actionBlackList }>
       <LogMonitor />
     </FilterMonitor>
   </DockMonitor>
