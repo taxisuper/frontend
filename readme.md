@@ -566,8 +566,49 @@ Note: remove the `className="filter-container"` prop in the `FilterList`, otherw
 Replace the `FilterList` child component in `Feed` and `Map` with your newly created `FilterContainer`.
 When you have completed this task there should be a form in the GUI.
 
-### Step II:
-In React, inputfields have two props that
+### Step II
+In React, form components have two props that control user interaction: `onChange` and `value`.
+We will be using these two props to activate our input and select fields, the React Form documentation will be helpful here:
+https://facebook.github.io/react/docs/forms.html.
+
+In the example they are using in the React documentation they use `setState` inside the `handleChange` function.
+Using `setState` means storing the state locally, in the component.
+However, since we have a tool for handling state, namely, Redux, we don't need to use `setState`.
+We can just use actions and reducers and make the form a part of our redux state tree. So, guess what? Time to make a new reducer `form`.
+The initial state of the `form` should have the following representation:
+```javascript
+const initialState = {
+  name: '',
+  hashtags: '',
+  text: '',
+  color: ''
+}
+```
+The new reducer should handle two cases `FORM_UPDATED` with the `formUpdate(field)` action creator and `FORM_SUBMITTED` with the `formSubmit()`action creator.
+The field shoud be an object with a key (the field name) and a value (the field value).
+
+You may want to connect the `FilterForm` component so that you don't have to pass form callbacks and form state all the way from `Feed` down to the input fields.
+Once the `FilterForm` component is connected, you can hook up the form state with the `value` prop of the input and select form elements.
+You can also create a callback function `updateForm` that dispatches `formFilterUpdate(field)`.
+Pass the `updateForm` function down to the input field, so that you end up with something along the lines of
+```
+<input type="text" id={name} name={text} value={value} onChange={(event) => updateForm({key: 'text', value: event.target.value  })} />
+```
+
+When you have completed this task you should be able to fill the form fields and there should be actions firing in the Redux panel on every key stroke.
+
+### Step III Submitting the form
+When the user presses the save button in the form, three things should happen
+1) The form should not be displayed in the GUI, we should only see the filters.
+Thus we need to extend our `view` state object with a new prop: `formVisibility`.
+The reducer should be extended with two cases `FORM_HIDE` and `FORM_SUBMITTED`, the latter action type we created in Step II.
+When the `Form` is hidden, that is, when `formVisibilty: false`, the `FilterList` should be visible, along with a button ```<button>New filter</button>```.
+When the `Form` is displayed, the `FilterList` and the button should be hidden. Hint: You may want to use the `If`-components introduced in task 5.
+
+2) The form fields should be cleared
+
+3) The form data should be submitted into our json
+
 
 
 
