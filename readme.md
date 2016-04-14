@@ -1,6 +1,22 @@
 # Twitter Dashboard 2.0: Redux Revisited
 
-Slides are available [here](https://github.com/ewendel/slidesets/blob/master/redux-workshop.pdf)
+1. Start by install dependencies:
+
+`npm install`
+
+2. Run the build script in watch mode:
+
+`npm run start`
+
+3. Visit the application on [http://localhost:9999/](http://localhost:9999/)
+
+4. Follow this readme
+
+5. Ask for help when/if you get stuck
+
+6. Have loads of fun!
+
+[Slides are available here](https://github.com/ewendel/slidesets/blob/master/redux-workshop.pdf)
 
 ## Task 1: Basic Redux application flow
 
