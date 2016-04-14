@@ -4,16 +4,16 @@
 README.md
 
 
-# Task 1: Basic Redux application flow
+### Task 1: Basic Redux application flow
 
 In this section we'll set up a really simple app from scratch. You'll keep track of a single number starting at zero, incrementing it once for every click inside the browser window. We'll break this rather simple task into four steps, demonstrating the core redux concepts of a store, actions and reducers.
 
-* Step 1: Creating a store
-* Step 2: Retrieving the state
-* Step 3: Changing the state
-* Step 4: Subscribing to store change and re-rendering
+* A: Creating a store
+* B: Retrieving the state
+* C: Changing the state
+* D: Subscribing to store change and re-rendering
 
-## Step 1: Creating a store.
+### A: Creating a store.
 
 We need a store. Redux advocates having all your application data in a single object structure, but we'll need some layer of abstraction instead of just using a plain old javascript object.
 
@@ -54,7 +54,7 @@ Success!
 Well, we still have a white page, so we're not quite finished yet.
 Let's print the number in our store to the screen.
 
-## Step 2: Retrieving the state from the store
+### B: Retrieving the state from the store
 
 The `store` object has a function `getState` that's used to retrieve the current state.
 We'll use the good, old DOM API to 
@@ -65,7 +65,7 @@ document.body.innerText = store.getState();
 
 Great! Now we've initialized a store object to contain all our data, created a simple pass-through reducer that describes our state mutations and rendered the store content to the DOM.The next logical step from here would be to perform changes to our state. 
 
-## Step 3: Changing our state
+### C: Changing our state
 
 We'll use another function on `store`  - the `dispatch` function. This function enables us to declaratively say that something has happened in our app. This would be some user interaction, e.g a button was clicked, or something timed out, or basically whatever action that might require us to update our state.
 
@@ -105,7 +105,7 @@ Use an `if`-statement in your reducer to increment the state.
 
 Running your app with these additions yields disappointing results in the browser. The problem is that even tho we are updating the value of our state, we're not rendering this new state to the page. This brings us to the fourth and final step of the cycle:
 
-### Step 4: Subscribing to store change and re-rendering
+### D: Subscribing to store change and re-rendering
 
 Lets refactor our rendering method into its own function:
 
@@ -134,12 +134,12 @@ React is a wildly popular frontend library by Facebook for creating graphical us
 
 ### A very brief overview of React
 
-React allows us to express our GUI as a series of functions. These functions can be seen as transformations that accept some sort of data structure as input and return a representation of how that data structure should be rendered in HTML. We typically refer to these functions describing our GUI as "components" or just "React components".
+React allows us to express our GUI as a series of functions. These functions can be seen as transformations that accept some sort of data structure as input and return a representation of how that data structure should be rendered in HTML. Hmm, that might sound kinda scary as well, but really - React is about functions. A function that accepts an object like `{ name: 'John', likesApples: true }` and returns some HTML: `<div>John likes apples</div>`.We typically refer to these functions describing our GUI as "React components" or just "components".
 
 Here an example of a component:
 
 ```
-function MyCoolComponent(props) {
+function MyCoolComponent() {
     return <div>Hello World</div>
 }
 ```
@@ -162,6 +162,25 @@ would be represented as a data structure in this manner:
         className: 'ninja'
     },
     children: ['Hello World!']
+}
+```
+
+Components, like functions, will also accept parameters:
+
+```
+function MyCoolComponent(props) {
+    return <div>{props.name} {props.likesApples? 'likes' : 'dislikes'} apples</div>
+}
+```
+
+Our components can in turn utilize other components:
+
+```
+function MyView() {
+    return <div>
+            <MyCoolComponent name="John" likesApples={true} />
+            <MyCoolComponent name="Alice" likesApples={false} />
+          </div>;
 }
 ```
 
