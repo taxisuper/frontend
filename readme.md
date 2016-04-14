@@ -1,8 +1,6 @@
 # Twitter Dashboard 2.0: Redux Revisited
 
-## Table Of Contents
-
-
+Slides are available [here](https://github.com/ewendel/slidesets/raw/master/redux-workshop.pdf)
 
 ## Task 1: Basic Redux application flow
 
