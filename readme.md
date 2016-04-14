@@ -1,4 +1,5 @@
 # Redux workshop
+## Introduction
 
 ### Task 7
 #### a)
@@ -11,7 +12,7 @@ Create a filter reducer that consists of an array of filters with the following 
   color: 'yellow',
   name: 'Trump',
   text: 'Trump',
-  hashtag: [Trump],
+  hashtags: ['Trump'],
   active: true
 },
 ```
@@ -19,7 +20,7 @@ The color indicates the marker color. The active flag indicates if the filter is
 For now, the only case the reducer will handle is `FILTER_ACTIVE_TOGGLE`.
 Create the corresponding action creator.
 
-We have created a FilterList React component for you:
+Create a Filter component :
 
 ```javascript
 function Filter({ name, color, active}) {
@@ -34,7 +35,7 @@ function Filter({ name, color, active}) {
 
 Filter.propTypes = {
   name: PropTypes.string.isRequired,
-  isActive: PropTypes.bool,
+  active: PropTypes.bool,
 };
 
 function FilterList({ filters}) {
