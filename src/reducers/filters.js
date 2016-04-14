@@ -15,13 +15,13 @@ const initialState = [
     color: 'pink',
     name: 'Hillary',
     text: 'Hillay',
-    active: true
+    active: false
   },
   {
     color: 'orange',
-    name: 'Redux',
-    text: 'Redux',
-    active: false,
+    name: 'Frequent filter',
+    text: 'the',
+    active: true,
   }
 ];
 

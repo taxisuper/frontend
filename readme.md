@@ -52,20 +52,20 @@ Let's try creating that store again:
 createStore(reducer)
 ```
 
-Success! 
+Success!
 Well, we still have a white page, so we're not quite finished yet.
 Let's print the number in our store to the screen.
 
 ### B: Retrieving the state from the store
 
 The `store` object has a function `getState` that's used to retrieve the current state.
-We'll use the good, old DOM API to 
+We'll use the good, old DOM API to
 
 ```
 document.body.innerText = store.getState();
 ```
 
-Great! Now we've initialized a store object to contain all our data, created a simple pass-through reducer that describes our state mutations and rendered the store content to the DOM.The next logical step from here would be to perform changes to our state. 
+Great! Now we've initialized a store object to contain all our data, created a simple pass-through reducer that describes our state mutations and rendered the store content to the DOM.The next logical step from here would be to perform changes to our state.
 
 ### C: Changing our state
 
@@ -100,7 +100,7 @@ Our reducer function actually gets the action passed in as the second argument, 
 
 You'll see that upon creating the store, redux will trigger an action called `@@redux/INIT` which is used to set up the initial state in your reducer. Upon clicking the window, you'll see your own `USER_CLICKED`-actions appear.
 
-The last thing we need to do in order to complete the Redux cycle is to update the state. 
+The last thing we need to do in order to complete the Redux cycle is to update the state.
 
 This involves making our reducer react to certain types of actions - `'USER_CLICKED'`, for instance.
 Use an `if`-statement in your reducer function to increment the state only when an action of this type is dispatched.
@@ -213,55 +213,117 @@ Create a filter reducer that consists of an array of filters with the following 
   active: true
 },
 ```
-The color indicates the marker color. The active flag indicates if the filter is turned on or off.
-For now, the only case the reducer will handle is `FILTER_ACTIVE_TOGGLE`.
-Create the corresponding action creator.
+The active flag indicates if the filter is turned on or off.
+The color indicates the map marker color, where the supported colors are: "blue", "green", "pink", "lightblue", "purple", "yellow" and "red"
+For now, the only case the reducer will handle is an action with type `FILTER_ACTIVE_TOGGLE`.
+Create the corresponding action creator `toggleActiveFilter()`.
 
-Create a Filter component :
-
-```javascript
-function Filter({ name, color, active}) {
-  const className = active ? '' : 'inactive';
-  return (
-    <span className={ className } onClick = {() => console.log('filter click')}>
-      <div className={`circle ${color} ${className}`}/>
-      { name }
-    </span>
-  );
-}
-
-Filter.propTypes = {
-  name: PropTypes.string.isRequired,
-  active: PropTypes.bool,
-};
-
-function FilterList({ filters}) {
-  return (
-    <ul className="filterList">
-      { filters.map(f =>
-        <li key={ f.name }>
-          <Filter
-            {...f}
-          />
-        </li>)}
-    </ul>
-  );
-}
-
-FilterList.propTypes = {
-  filters: PropTypes.array.isRequired,
-  onFilterActiveChange: PropTypes.func.isRequired
-};
+To display the filters, we need a filter component. Create the file `Filter.jsx` with a component that renders the following HTML when given a filter
+Substitute FILTERNAME and FILTERCOLOR with the values from the actual filter.
+```html
+<span className="FILTERACTIVE" onClick={() => console.log('filter click')}>
+ <div className="circle FILTERCOLOR" }/>
+ FILTERNAME
+</span>
 ```
-Create a file with the `FilterList` component and let this component be a child of the `Map` and `Feed` components.
-Pass the state from your newly created `filters` reducer down to the `FilterList` component.
-Remember to combine the new reducer in the `reducers/index.js` file.
+
+We would like to render a list of different filters, thus, create a `FilterList` component:
+
+```html
+<div className="filter-container">
+  <ul className="filterList">
+   <li>
+    <Filter>
+   </li>
+  </ul>
+</div>
+```
+
+Put the `FilterList` component in a new file and let this component be a child of the `Map` and `Feed` components.
+Pass the state from your newly created `filters`-reducer down to the `FilterList` component.
+Hint: In the `mapStateToProps` function at the bottom of the `Map` and `Feed`components, you should pick up `filters`from the `state` object.
+
+Remember to combine the new reducer in the `reducers/index.js` file, as you did before with the `route`-reducer and the `tweets`reducer.
+
 You may want to put some initial state data into the reducer, for instance the Trump filter, so that you have some data to work with in the UI.
 When the filter list is successfully displayed on both routes, you can start on the onClick handler of the `Filter` component.
-When you click on a filter, you should be able to toggle the active flag.
+
+When you have finished this task, you should be able to toggle filters on and off by clicking on them.
+If you have used the correct css-classes, this should be visible in the ui.
 
 #### b)
-Now it is time to actually filter the tweets.
+Now it is time to actually filter the tweets. Let's start with the tweets displayed in the feed route.
+In the function `mapStateToProps` we pick up `filters`and `tweets`, thus, here we have everything we need.
+Make a utility function `getViewTweets(tweets, filters)` that returns an array of all the tweets that match one or more of the active filters.
+If there are no active filters, the function should return the 100 most recent tweets, as before.
+Inside `mapStateToProps`, instead of returning a sliced array of tweets, use you newly created utility-function to return the "view" tweets.
+Hint: It might be an idea to create a filter with a high match rate, so that you can quicly see if your implementation is correct.
+For instance:
+```
+{
+    color: 'orange',
+    name: 'Frequent filter',
+    text: 'the',
+    active: false,
+  }
+```
+Now, we are going to need the exact same functionality in the `Map` component.
+Let's make our utility function reusable by putting it into a separate file and exporting it into both the `Map` and `Feed` component.
+When you have completed this task, only tweets that match the active filter should show up in the Feed and on the Map.
+
+#### c) Adding color
+Edit your `getViewTweets` function so that it not only filters the tweets, but also adds the prop color of the filter it matches.
+If it does not match any filters, add the color red.
+If you have used the correct css-classes, both the Map and The Feed should now clearly indicate which filter the tweets match.
+
+
+### Task 8
+#### a)
+It would be nice to be able to add new filters in the GUI instead of changing the initial state of the `filters`-reducer every time we want a new filter.
+For this, we need a form component with the exotic name `FilterForm`.
+We will start by only rendering the html, with no form logic
+The html should look something like this
+ ```html
+ <form className="filter-form">
+       <h3>New filter</h3>
+       <div className="input-wrapper">
+           <label for="name">Name</label>
+           <input type="text" id="name" name="name"/>
+       </div>
+       <div className="input-wrapper">
+           <label for="hashtag">#</label>
+           <input type="text" id="hashtags" name="hashtags"/>
+       </div>
+       <div className="input-wrapper">
+          <label for="text">Text</label>
+          <input type="text" id="text" name="text"/>
+        </div>
+        <div className="input-wrapper">
+            <label for="color">Marker color</label>
+            <select name="color">
+              <option key="green" value="green">Green</option>
+              <option key="pink" value="green">Pink</option>
+            </select>
+        </div>
+        <button>Save</button>
+     </form>
+ ```
+Tip: You may want to make a separate `InputField` component to DRY things up.
+
+Before we put the new component into our GUI, let's make a wrapper component `FilterContainer` that wraps both the `FilterForm` and the `FilterList`:
+<div className="filter-container">
+  <h2>Filters & Stats</h2>
+  <FilterList/>
+  <FilterForm/>
+</div>
+Note: remove the `className="filter-container"` prop in the `FilterList`, otherwise the html will look strange.
+Replace the `FilterList` child component in `Feed` and `Map` with your newly created `FilterContainer`.
+When you have completed this task there should be a form in the GUI.
+
+#### b)
+In React, inputfields have two props that
+
+
 
 
 
