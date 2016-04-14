@@ -73,7 +73,7 @@ document.body.innerText = store.getState();
 
 Reopen your browser to verify that the number zero is shown.
 
-Great! Now we've initialized a store object to hold our application data, created a simple reducer that describes our state transformations (currently none) and rendered the store contents (a number) to the DOM. 
+Great! Now we've initialized a store object to hold our application data, created a simple reducer that describes our state transformations (currently none) and rendered the store contents (a number) to the DOM.
 
 The next logical step from here would be to perform changes to our state.
 
@@ -87,7 +87,7 @@ Let's try doing that dispatch thing:
 store.dispatch()
 ```
 
-Did it work? What happened? Check the console again. 
+Did it work? What happened? Check the console again.
 
 Redux states that an action needs to be a plain javascript object. Try entering the source code again to have a look at what else Redux expects from our actions.
 
@@ -117,7 +117,7 @@ The last thing we need to do in order to complete the Redux cycle is to update t
 This involves making our reducer react to certain types of actions - `'USER_CLICKED'`, for instance.
 Use an `if`-statement in your reducer function to increment the state only when an action of this type is dispatched.
 
-Running your app with these additions yields disappointing results in the browser. The problem is that even though we are updating the value of our state, we're not rendering this new state to the page. 
+Running your app with these additions yields disappointing results in the browser. The problem is that even though we are updating the value of our state, we're not rendering this new state to the page.
 
 ### Step IV: Subscribing to store change and re-rendering
 
@@ -193,27 +193,26 @@ We'll do this by building a Twitter Dashboard app, as you've probably understood
 
 The component should output the following HTML. This is needed to get the correct styling (we've written the CSS for you already).
 
-*TODO*
 ```html
 <div className="tweet">
-        <div className={'tweet-header'}>
-          <img className="tweet-image" src="https://pbs.twimg.com/profile_images/553711083064541184/9VsY9i09.jpeg" />
-          <div className="tweet-image-offset tweet-name">Dan Abramov</div>
-          <div className="tweet-image-offset tweet-screen-name">@DanAbramov</div>
-        </div>
+  <div className="tweet-header">
+    <img className="tweet-image" src="https://pbs.twimg.com/profile_images/553711083064541184/9VsY9i09.jpeg" />
+    <div className="tweet-image-offset tweet-name">Dan Abramov</div>
+    <div className="tweet-image-offset tweet-screen-name">@DanAbramov</div>
+  </div>
 
-        <div className="tweet-content">
-          <div className="tweet-text">Good luck on your quest to learn Redux!</div>
-          <div className="tweet-stats">
-            <span className="tweet-user-followers">
-              <strong>26 587</strong>
-              <span className="tweet-stats-desc">followers</span>
-            </span>
-          </div>
-          <span className="tweet-country tweet-stats-desc">UK</span>
-          <div className="tweet-city tweet-stats-desc">London</div>
-        </div>
-      </div>
+  <div className="tweet-content">
+    <div className="tweet-text">Good luck on your quest to learn Redux!</div>
+    <div className="tweet-stats">
+      <span className="tweet-user-followers">
+        <strong>26 587</strong>
+        <span className="tweet-stats-desc">followers</span>
+      </span>
+    </div>
+    <span className="tweet-country tweet-stats-desc">UK</span>
+    <div className="tweet-city tweet-stats-desc">London</div>
+  </div>
+</div>
 ```
 
 ##### Do the following:
@@ -238,7 +237,7 @@ Now you should still see the tweet on the page, but you should feel warm and fuz
 
 ## Task 3: Receiving real tweets from the Twitter API
 
-We'll tire quickly of the same old hardcoded tweet, even if its really cool that it's being added to our shiny Redux store through an action. Using the Twitter streaming API we'll instead get access to live tweets from around the world. 
+We'll tire quickly of the same old hardcoded tweet, even if its really cool that it's being added to our shiny Redux store through an action. Using the Twitter streaming API we'll instead get access to live tweets from around the world.
 
 All you need to do is to paste the following code snippet into your `index.js`:
 
@@ -262,7 +261,7 @@ Now that we're keeping more than just one tweet at a time, we'll have to change 
 
 * Change the initial state from just an object to an empty array.
 * Dispatch `'TWEET_RECEIVED'` whenever a new tweet is received through the WebSocket
-* Move the tweet reducer function to `/reducers/tweets.js` (use `export default`)
+* Move the tweet reducer function to `/reducers/tweets.js` (use `export default` there and `import tweets from './reducers/tweets'` in `index.js`)
 * Make sure the tweet reducer adds any new tweets that it receives to the array of existing tweets
 * Change the input (props) passed to our `<Tweet>` component so it only receives the newest tweet in the array
 
@@ -282,7 +281,13 @@ As this will be the beginning of a larger application we want to create a root c
 
 *(Protip 2: you can "escape" the JSX syntax with curlybraces to execute JavaScript code and map arrays to JSX elements)*
 
-*TODO: eksempel HTML her*
+Example HTML from `<App>`
+```html
+<ul classname="tweetList">
+  <li><Tweet /></li>
+  <li><Tweet /></li>
+</ul>
+```
 
 ##### Do the following:
 
@@ -365,13 +370,20 @@ Now when you open your app you will only see the `@@INIT` action in the devtools
 So far our whole app state has only consisted of a list of tweets. Now that we want to create our own little router we also need the current route as part of our app state.
 
 ### Step I: A Wild Reducer Appears
-In `reducers/index.js` create another reducer function called `routeReducer`. Its initial state should be an empty string.
-This reducer should handle an action of type `ROUTE_CHANGED` that has a `route` attached to it. Also create the corresponding action creator (in `actions/index.js`).
+In `reducers/route.js` create a reducer function called `routeReducer`. Its initial state should be an empty string.
+This reducer should handle an action of type `ROUTE_CHANGED` that has a `route` attached to it.
+
+We also want to create something called an action creator. An action creator is just a function that returns an action object.
+In `actions/index.js` create a function called `changeRoute` that takes the route as an argument and returns the action object the `routeReducer` should handle.
+
+##### Do the following:
+* Create the `routeReducer` (remember to `export default`)
+* Create the `changeRoute` action creator (use a named export, e.g. `export function changeRoute(...)`)
 
 ### Step II: Combining Reducers
-To get the current route as part of our application state we have to somehow combine our two reducers (`tweetsReducer` and `routeReducer`) into an object.
+To get the current route as part of our application state we have to somehow combine our two reducers (`tweetsReducer` and `routeReducer`).
 
-Let's create another reducer called `rootReducer`. It's initial state should be an object like this:
+Let's create another reducer called `rootReducer` in `reducers/index.js`. Its initial state should be an object like this:
 ```javascript
 {
   tweets: [],
@@ -379,11 +391,17 @@ Let's create another reducer called `rootReducer`. It's initial state should be 
 }
 ```
 
-Now, this reducer should not handle any actions on is own, but rather delegate this to the other two reducers.
+Now, this reducer should not handle any actions on is own, but rather delegate this to the other two reducers. Try to figure out how to do this on your own before you read on.
+
+
 
 ---
 
+
+
 ```javascript
+import tweetReducer from './tweets';
+import routeReducer from './route';
 const initialState = {
   tweets: [],
   route: ''
@@ -396,7 +414,7 @@ function rootReducer(state = initialState, action) {
 }
 ```
 
-This works, but will become cumbersome when we have more than two reducers. Luckily, Redux provides the aptly named function `combineReducers`. This function turns an object whose values are reducers into a combined reducer that works like the one we made. The shape of the resulting combined state will match the keys of the passed object of reducers.
+This works, but will become cumbersome when we have more than two reducers. Luckily, Redux provides the aptly named function `combineReducers`. This function turns an object whose values are reducers into a combined reducer that works like the one we made. The shape of the resulting combined state will match the keys of the passed object of reducers. We also do not need to specify the initial state of this combined reducer as it will use the initial states of each of the individual reducers.
 
 In our case it will look like this:
 ```javascript
@@ -409,8 +427,6 @@ const rootReducer = combineReducers({
 
 export default rootReducer;
 ```
-
-Notice that we export this as default.
 
 Now, if you open the app you will see that the list of tweets is not working. Fix this.
 Hint: we changed the shape of the `state` so you will have to modify the `mapStateToProps` function we created earlier.
@@ -456,6 +472,25 @@ Update `mapStateToProps` to also send the active route to our `App` component. W
 Now you should be able to click the nice links and see that the view switches between the tweet feed and the other view.
 
 ## Task 6: Displaying Tweets On A Map
+Showing an ever updating list of tweets is pretty cool, but what if we want to see where each tweet was sent from?
+Luckily for you someone left some files in your project. Take a look at `components/CurrentTweet.jsx`, `components/TweetMap.jsx` and `containers/Map.jsx`.
+
+Remember in the last task where we told you that you could render whatever you wanted when the active route is `/`?
+Now try rendering the Map component there instead!
+
+### Step I: Clicking A Tweet
+Wouldn't it be cool if we could click a tweet marker on the map and see what that person was thinking about?
+
+As you may have noticed by looking through the files mentioned above there is a click handler wired up to tweet markers on the map. Currently the app complains when you click a marker. Fix this by creating the action creator that `<Map>` tries to call.
+
+Now the app is not complaining anymore, but nothing happens. Let's create another reducer to handle the action you returned from the action creator.
+Call this reducer `reducers/view.js`, as it will contain view state, and make it have an object with a property `currentTweet` as its state shape.
+
+At this point you should be able to click a marker on the map and see the tweet appear on the screen!
+
+##### Do the following:
+* Create `setCurrentTweet` action creator
+* Create `reducers/view.js`
 
 
 ## Task 7: Filtering Tweets
@@ -475,11 +510,11 @@ Create a filter reducer that will handle an array of filters with the following 
 },
 ```
 The active flag indicates if the filter is turned on or off.
-The color indicates the map marker color, where the following colors are supported: 
-* "blue" 
+The color indicates the map marker color, where the following colors are supported:
+* "blue"
 * "green"
-* "pink" 
-* "lightblue" 
+* "pink"
+* "lightblue"
 * "purple"
 * "yellow"
 * "red"
@@ -638,9 +673,3 @@ When the `Form` is displayed, the `FilterList` and the button should be hidden. 
 2) The form fields should be cleared
 
 3) The form data should be submitted into our json
-
-
-
-
-
-
