@@ -5,7 +5,7 @@ Visit https://apps.twitter.com
 Click "Create new app". Choose a random app name and description and use
 "http://example.org" as app url.
 
-Go to "Keys and Access Tokens". Create the file `task/twitter.json` with your
+Go to "Keys and Access Tokens". Create the file `twitter.json` in the root folder of the repository with your
 keys and tokens. The file should be on the following format:
 
 ```
@@ -16,7 +16,4 @@ keys and tokens. The file should be on the following format:
     "access_token_secret": "your access token secret"
 }
 ```
-
-**NB!** There exists a `task/example-twitter.json` that you can copy to
-`task/twitter.json` as a starting point!
 
