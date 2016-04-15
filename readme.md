@@ -35,6 +35,10 @@ We need a store. Redux advocates having all your application data in a single ob
 
 Redux gives us a convenient function, namely `createStore()`.
 
+```javascript
+import { createStore } from 'redux';
+```
+
 Use this to get yourself a shiny new store, ready to be filled with our application data.
 Try to call `createStore` without any parameters initially, and check the browser console.
 
