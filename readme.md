@@ -779,6 +779,22 @@ We think, by know, you have learned enough to be able to complete this task on y
 Hint: take a look at the [API.md](API.md) file.
 
 
+## Task 10: Testing!
+
+This is a relatively open task. We have included some nice libraries for testing your code, namely [`enzyme`](https://github.com/airbnb/enzyme), [`mocha`](https://mochajs.org/) and [`expect`](https://github.com/mjackson/expect). We have also created a script to run tests.
+Use
+```shell
+npm test
+```
+to run your tests once, and
+```shell
+npm run test:watch
+```
+to run your tests in "watch mode". This mode will rerun your tests when you update your code.
+The test runner will pick up files ending with `*.test.js`, for example the file `reducers/view.test.js`.
+
+Hopefully by now you will have noticed that we have written our whole app using pure functions (_even our React components!_), so testing them should be a breeze!
+
 
 
 
