@@ -676,12 +676,108 @@ When you have completed this task you should be able to fill the form fields and
 
 ### Step III Submitting the form
 When the user presses the save button in the form, three things should happen
+
 1) The form should not be displayed in the GUI, we should only see the filters.
 Thus we need to extend our `view` state object with a new prop: `formVisibility`.
 The reducer should be extended with two cases `FORM_HIDE` and `FORM_SUBMITTED`, the latter action type we created in Step II.
 When the `Form` is hidden, that is, when `formVisibilty: false`, the `FilterList` should be visible, along with a button ```<button>New filter</button>```.
-When the `Form` is displayed, the `FilterList` and the button should be hidden. Hint: You may want to use the `If`-components introduced in task 5.
+When the `Form` is displayed, the `FilterList` and the button should be hidden.
 
 2) The form fields should be cleared
 
-3) The form data should be submitted into our json
+3) The form data should be submitted into our fake db.json database, we will do this in the next task
+
+## Task 9: Async actions
+### Step I: Fetching data from backend
+Now, it is time to learn how to post and fetch filter data from the backend.
+
+We have created a fake REST-API using [json-server](https://www.npmjs.com/package/json-server).
+In the file `db.json` we have stored some data which you can check out at
+http://localhost:9999/api/filters. This will also be the url for your api calls.
+
+We will be using [`superagent`](https://www.npmjs.com/package/superagent) for
+http requests in our examples (and it is already present in `node_modules`),
+however you are free to use other libraries if you wish.
+
+Example get request using superagent:
+
+```javascript
+superagent
+  .get('/some-url')
+  .end(function(err, response){
+      // Do something
+  });
+```
+
+Note that `response.body` is already a javascript object, so there is no need
+for `JSON.parse`. You can find some useful snippets for our API in [API.md](API.md)
+
+We want to fetch the data from `/api/filters` and use this to initialize our app, i.e. set the state of our `filters` reducer.
+We will fetch this data by doing our http request in a new action creator `fetchFilters` in the file `actions/apiActions.js`.
+Before we do this, let's learn some more about action creators.
+So far our action creators have returned plain action objects such as:
+
+```javascript
+function startRequest() {
+  return {
+    type: REQUEST_STARTED
+  }
+}
+```
+
+But in Redux, if you have a library called `thunk` (which we have already included in the node_modules and also set up for you in `configureStore.js`), action creators can also return functions.
+If you return a function, you will get `dispatch` as an argument so we can do this:
+
+```javascript
+function startAsyncRequest() {
+ return dispatch => {
+    dispatch({
+      type: ASYNC_REQUEST_STARTED
+    });
+  }
+}
+```
+For api-requests this means that when we initiate an API-call, we can first dispatch an action saying "a request has started", in our case: `FILTERS_REQUEST_STARTED`.
+This is helpful if we, for instance, want to show a spinner in the GUI.
+After dispatching this action, we can start our api call and dispatch a new action when we receive a response, for instance `FILTERS_REQUEST_FAILED` or `FILTERS_REQUEST_SUCCEEDED`.
+We should end up with something like this
+
+```javascript
+dispatch({ type: 'REQUEST_STARTED' });
+
+request('/api', function (err, result) {
+  if (err) {
+    dispatch({ type: 'REQUEST_FAILED', err });
+  } else {
+    dispatch({ type: 'REQUEST_SUCCEDED', result });
+  }
+});
+```
+
+Implement the action creator `fetchFilters` where you call the `/api/filters` endpoint and dispatch a `FILTER_REQUEST_SUCCEEDED` action on a successful (200 OK) response.
+Call this action creator on app startup in the `index.js` file like so.
+```
+store.dispatch(fetchFilters());
+```
+Test to see if it works by inspecting the dev tools panel.
+
+Now it is time to implement the corresponding reducer in reducers/filters.js.
+First, set `initialState = []` since we will now fetch the filter data from the
+response returned from the API.
+Next, expand the switch statement to act on your new `FILTER_REQUEST_SUCCEEDED` action.
+If you are succesfull, the filters in the db.json file should be visible in your gui.
+You should also find a way to handle a failed response, by showing an error message.
+Lastly, try showing a loading message when you are waiting for the async request.
+
+### Step II: Posting data to the backend
+Lastly, it is time to finish the CRUD process, namely save the data in the form when you click the submit button.
+We think, by know, you have learned enough to be able to complete this task on your own. See it as a challenge!
+Hint: take a look at the [API.md](API.md) file.
+
+
+
+
+
+
+
+
