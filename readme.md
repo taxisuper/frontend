@@ -498,11 +498,15 @@ As you may have noticed by looking through the files mentioned above there is a 
 Now the app is not complaining anymore, but nothing happens. Let's create another reducer to handle the action you returned from the action creator.
 Call this reducer `reducers/view.js`, as it will contain view state, and make it have an object with a property `currentTweet` as its state shape.
 
-At this point you should be able to click a marker on the map and see the tweet appear on the screen!
+If you now go to `mapStateToProps` in `containers/Map.jsx` and pick the current tweet from the state, you should be able to click a marker on the map and see the tweet appear on the screen!
 
 ##### Do the following:
 * Create `setCurrentTweet` action creator
 * Create `reducers/view.js`
+
+## Step II: Visualizing the Clicked Tweet on the Map
+In `containers/Map.jsx`, try to give the currently clicked Tweet marker a different color.
+*(Protip: You can 'enhance' the tweets by also making them have a property `color`, which will be picked up by `<TweetMap>`)*
 
 
 ## Task 7: Filtering Tweets
@@ -587,12 +591,12 @@ For instance:
   }
 ```
 Now, we are going to need the exact same functionality in the `Map` component.
-Let's make our utility function reusable by putting it into a separate file and exporting it into both the `Map` and `Feed` component.
+Let's make our utility function reusable by putting it into a separate file and importing it into both the `Map` and `Feed` component.
 When you have completed this task, only tweets that match the active filter should show up in the Feed and on the Map.
 
 ### Step III: Adding color
-Edit your `getViewTweets` function so that it not only filters the tweets, but also adds the prop color of the filter it matches.
-If it does not match any filters, add the color red.
+Edit your `getViewTweets` function so that it not only filters the tweets, but also adds the prop color of the filter it matches. Remember we did something like this for the `currentTeet`?
+If a tweet does not match any filters, use the color red.
 If you have used the correct CSS classes, both the Map and the Feed should now clearly indicate which filter the tweets match.
 
 

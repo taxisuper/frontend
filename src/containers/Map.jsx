@@ -34,7 +34,7 @@ Map.propTypes = {
 
 const mapStateToProps = state => ({
   tweets: state.tweets,
-  currentTweet: state.view.currentTweet
+  currentTweet: null
 });
 
 export default connect(mapStateToProps)(Map);

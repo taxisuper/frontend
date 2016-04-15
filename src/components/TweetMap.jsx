@@ -4,7 +4,8 @@ import { GoogleMap, Marker, GoogleMapLoader } from 'react-google-maps';
 
 function TweetMap({tweets, onTweetClick}) {
   const markers = tweets.map(t => {
-    const icon = `http://maps.google.com/mapfiles/ms/icons/${t.color}-dot.png`;
+    const color = t.color || 'red';
+    const icon = `http://maps.google.com/mapfiles/ms/icons/${color}-dot.png`;
 
     return (
       <Marker
