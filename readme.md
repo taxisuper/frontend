@@ -676,12 +676,89 @@ When you have completed this task you should be able to fill the form fields and
 
 ### Step III Submitting the form
 When the user presses the save button in the form, three things should happen
+
 1) The form should not be displayed in the GUI, we should only see the filters.
 Thus we need to extend our `view` state object with a new prop: `formVisibility`.
 The reducer should be extended with two cases `FORM_HIDE` and `FORM_SUBMITTED`, the latter action type we created in Step II.
 When the `Form` is hidden, that is, when `formVisibilty: false`, the `FilterList` should be visible, along with a button ```<button>New filter</button>```.
-When the `Form` is displayed, the `FilterList` and the button should be hidden. Hint: You may want to use the `If`-components introduced in task 5.
+When the `Form` is displayed, the `FilterList` and the button should be hidden.
 
 2) The form fields should be cleared
 
-3) The form data should be submitted into our json
+3) The form data should be submitted into our fake db.json database, we will do this in the next task
+
+## Task 9: Async actions
+Now, it is time to learn how to post and fetch filter data from the backend.
+
+We have created a fake REST-API using [json-server](https://www.npmjs.com/package/json-server).
+In the file `db.json` we have stored some data which you can check out at
+http://localhost:9999/api/filters. This will also be the url for your api calls.
+
+We will be using [`superagent`](https://www.npmjs.com/package/superagent) for
+http requests in our examples (and it is already present in `node_modules`),
+however you are free to use other libraries if you wish.
+
+Example get request using superagent:
+
+```javascript
+superagent
+  .get('/some-url')
+  .end(function(err, response){
+      // Do something
+  });
+```
+
+Note that `response.body` is already a javascript object, so there is no need
+for `JSON.parse`.
+
+You can find some useful snippets for our API in [API.md](API.md)
+
+We want to fetch the data from `/api/filters` and use this to initialize our app.
+We will fetch this data by doing our http request in a new action creator `fetchFilters` in the file `actions/apiActions.js`.
+We will call this action creator on app startup in the `index.js` file like so
+```
+store.dispatch(fetchFilters());
+```
+
+So far our action creators have returned plain action objects such as:
+
+```javascript
+function fetchFilters() {
+  return {
+    type: FILTERS_RECEIVED
+  }
+}
+```
+
+But in Redux, action creators can also return functions. If you return a function,
+you will get `dispatch` as an argument so we can do this:
+
+```javascript
+fetchFilters() {
+ return dispatch => {
+    dispatch({
+      type: FILTERS_RECEIVED
+    });
+  }
+}
+```
+
+
+
+Now call the `/api/filters` endpoint and dispatch a `FILTER_FETCHED` action on a
+successful (200 OK) response.
+Test to see if it works by inspecting the dev tools panel.
+
+Now it is time to implement the corresponding reducer in reducers/filters.js.
+First, set `initialState = []` since we will now fetch the filter data from the
+response returned from the API.
+Next, expand the switch statement to act on your new `FILTER_FETCHED` action.
+
+When you have completed this task you should be able to open all the windows
+with the new data.
+
+
+
+
+
+

@@ -1,3 +1,18 @@
 {
-  "savedTweets": []
+  "filters": [
+    {
+      "color": "pink",
+      "name": "Hillary",
+      "text": "Hillary",
+      "hashtags": "['Hillary']",
+      "active": true
+    },
+    {
+      "color": "green",
+      "name": "Cool",
+      "text": "cool",
+      "hashtags": [],
+      "active": true
+    }
+  ]
 }
