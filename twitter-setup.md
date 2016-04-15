@@ -17,3 +17,9 @@ keys and tokens. The file should be on the following format:
 }
 ```
 
+Update `src/index.js` to point to localhost:
+```diff
+- const ws = new WebSocket('ws://twitterws.herokuapp.com');
++ const ws = new WebSocket('ws://localhost:9999');
+```
+
