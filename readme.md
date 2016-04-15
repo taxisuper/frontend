@@ -504,7 +504,7 @@ If you now go to `mapStateToProps` in `containers/Map.jsx` and pick the current 
 * Create `setCurrentTweet` action creator
 * Create `reducers/view.js`
 
-## Step II: Visualizing the Clicked Tweet on the Map
+### Step II: Visualizing the Clicked Tweet on the Map
 In `containers/Map.jsx`, try to give the currently clicked Tweet marker a different color.
 *(Protip: You can 'enhance' the tweets by also making them have a property `color`, which will be picked up by `<TweetMap>`)*
 
@@ -579,7 +579,7 @@ Now it is time to actually filter the tweets. Let's start with the tweets displa
 In the function `mapStateToProps` we pick up `filters`and `tweets`, thus, here we have everything we need.
 Make a utility function `getViewTweets(tweets, filters)` that returns an array of all the tweets that match one or more of the active filters.
 If there are no active filters, the function should return the 100 most recent tweets, as before.
-Inside `mapStateToProps`, instead of returning a sliced array of tweets, use you newly created utility-function to return the "view" tweets.
+Inside `mapStateToProps`, instead of returning a sliced array of tweets, use your newly created utility-function to return the "view" tweets.
 Hint: It might be an idea to create a filter with a high match rate, so that you can quicly see if your implementation is correct.
 For instance:
 ```
@@ -591,14 +591,13 @@ For instance:
   }
 ```
 Now, we are going to need the exact same functionality in the `Map` component.
-Let's make our utility function reusable by putting it into a separate file and importing it into both the `Map` and `Feed` component.
+Let's make our utility function reusable by putting it in a separate file and importing it into both the `Map` and `Feed` component.
 When you have completed this task, only tweets that match the active filter should show up in the Feed and on the Map.
 
 ### Step III: Adding color
 Edit your `getViewTweets` function so that it not only filters the tweets, but also adds the prop color of the filter it matches. Remember we did something like this for the `currentTeet`?
 If a tweet does not match any filters, use the color red.
 If you have used the correct CSS classes, both the Map and the Feed should now clearly indicate which filter the tweets match.
-
 
 ## Task 8: Creating new filters
 ### Step I:
@@ -607,29 +606,29 @@ For this, we need a form component with the exotic name `FilterForm`.
 We will start by only rendering the html, with no form logic.
 The HTML should look something like this
  ```html
- <form className="filter-form">
-       <h3>New filter</h3>
-       <div className="input-wrapper">
-           <label for="name">Name</label>
-           <input type="text" id="name" name="name"/>
-       </div>
-       <div className="input-wrapper">
-           <label for="hashtag">#</label>
-           <input type="text" id="hashtags" name="hashtags"/>
-       </div>
-       <div className="input-wrapper">
-          <label for="text">Text</label>
-          <input type="text" id="text" name="text"/>
-        </div>
-        <div className="input-wrapper">
-            <label for="color">Marker color</label>
-            <select name="color">
-              <option key="green" value="green">Green</option>
-              <option key="pink" value="green">Pink</option>
-            </select>
-        </div>
-        <button>Save</button>
-     </form>
+<form className="filter-form">
+ <h3>New filter</h3>
+ <div className="input-wrapper">
+     <label for="name">Name</label>
+     <input type="text" id="name" name="name"/>
+ </div>
+ <div className="input-wrapper">
+     <label for="hashtag">#</label>
+     <input type="text" id="hashtags" name="hashtags"/>
+ </div>
+ <div className="input-wrapper">
+    <label for="text">Text</label>
+    <input type="text" id="text" name="text"/>
+  </div>
+  <div className="input-wrapper">
+      <label for="color">Marker color</label>
+      <select name="color">
+        <option key="green" value="green">Green</option>
+        <option key="pink" value="green">Pink</option>
+      </select>
+  </div>
+  <button>Save</button>
+</form>
  ```
 Tip: You may want to make a separate `InputField` component to DRY things up.
 
@@ -637,13 +636,13 @@ Before we put the new component into our GUI, let's make a wrapper component `Fi
 
 ```html
 <div className="filter-container">
-  <h2>Filters & Stats</h2>
+  <h2>Filters</h2>
   <FilterList/>
   <FilterForm/>
 </div>
 ```
 
-Note: remove the `className="filter-container"` prop in the `FilterList`, otherwise the html will look strange.
+Note: remove the `className="filter-container"` prop in the `FilterList`, otherwise the HTML will look strange.
 Replace the `FilterList` child component in `Feed` and `Map` with your newly created `FilterContainer`.
 When you have completed this task there should be a form in the GUI.
 
@@ -654,7 +653,7 @@ https://facebook.github.io/react/docs/forms.html.
 
 In the example they are using in the React documentation they use `setState` inside the `handleChange` function.
 Using `setState` means storing the state locally, in the component.
-However, since we have a tool for handling state, namely, Redux, we don't need to use `setState`.
+However, since we have an awesome tool for handling state - Redux, we don't need to use `setState`.
 We can just use actions and reducers and make the form a part of our redux state tree. So, guess what? Time to make a new reducer `form`.
 The initial state of the `form` should have the following representation:
 ```javascript
@@ -665,17 +664,15 @@ const initialState = {
   color: ''
 }
 ```
-The new reducer should handle two cases `FORM_UPDATED` with the `formUpdate(field)` action creator and `FORM_SUBMITTED` with the `formSubmit()`action creator.
-The field shoud be an object with a key (the field name) and a value (the field value).
+The new reducer should handle two actions `FORM_UPDATED` and `FORM_SUBMITTED`, sent from the `formUpdate(field)` and `formSubmit()` action creators.
+The `field` object passed to `formUpdate()` should contain the field name and the field value.
 
-You may want to connect the `FilterForm` component so that you don't have to pass form callbacks and form state all the way from `Feed` down to the input fields.
-Once the `FilterForm` component is connected, you can hook up the form state with the `value` prop of the input and select form elements.
-You can also create a callback function `updateForm` that dispatches `formFilterUpdate(field)`.
+You may want to connect the `FilterForm` component so that you don't have to pass form callbacks and form state all the way from `Feed` down to the form fields.
+You can create a callback function `updateForm` inside `FilterForm` that dispatches `formFilterUpdate(field)`.
 Pass the `updateForm` function down to the input field, so that you end up with something along the lines of
 ```
-<input type="text" id={name} name={text} value={value} onChange={(event) => updateForm({key: 'text', value: event.target.value  })} />
+<input type="text" id="text" name="text" value={value} onChange={(event) => updateForm({key: 'text', value: event.target.value  })} />
 ```
-
 When you have completed this task you should be able to fill the form fields and there should be actions firing in the Redux panel on every key stroke.
 
 ### Step III Submitting the form
@@ -685,7 +682,7 @@ When the user presses the save button in the form, three things should happen
 Thus we need to extend our `view` state object with a new prop: `formVisibility`.
 The reducer should be extended with two cases `FORM_HIDE` and `FORM_SUBMITTED`, the latter action type we created in Step II.
 When the `Form` is hidden, that is, when `formVisibilty: false`, the `FilterList` should be visible, along with a button ```<button>New filter</button>```.
-When the `Form` is displayed, the `FilterList` and the button should be hidden.
+When the `Form` is displayed, the `FilterList` and the "new filter" button should be hidden.
 
 2) The form fields should be cleared
 
@@ -717,7 +714,7 @@ Note that `response.body` is already a javascript object, so there is no need
 for `JSON.parse`. You can find some useful snippets for our API in [API.md](API.md)
 
 We want to fetch the data from `/api/filters` and use this to initialize our app, i.e. set the state of our `filters` reducer.
-We will fetch this data by doing our http request in a new action creator `fetchFilters` in the file `actions/apiActions.js`.
+We will fetch this data by doing our http request in a new action creator `fetchFilters` in the file `actions.js`.
 Before we do this, let's learn some more about action creators.
 So far our action creators have returned plain action objects such as:
 
@@ -775,7 +772,7 @@ Lastly, try showing a loading message when you are waiting for the async request
 
 ### Step II: Posting data to the backend
 Lastly, it is time to finish the CRUD process, namely save the data in the form when you click the submit button.
-We think, by know, you have learned enough to be able to complete this task on your own. See it as a challenge!
+We think, by now, you have learned enough to be able to complete this task on your own. See it as a challenge!
 Hint: take a look at the [API.md](API.md) file.
 
 
