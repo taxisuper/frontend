@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import Flag from './Flag';
 
 class Tweet extends React.Component {
   shouldComponentUpdate(nextProps) {
@@ -25,7 +24,6 @@ class Tweet extends React.Component {
               <span className="tweet-stats-desc">followers</span>
             </span>
           </div>
-          <Flag countryCode={tweet.place.country_code} />
           <span className="tweet-country tweet-stats-desc">{ tweet.place.country }</span>
           <div className="tweet-city tweet-stats-desc">{ tweet.place.name }</div>
         </div>
