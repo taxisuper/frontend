@@ -688,6 +688,7 @@ When the `Form` is displayed, the `FilterList` and the button should be hidden.
 3) The form data should be submitted into our fake db.json database, we will do this in the next task
 
 ## Task 9: Async actions
+### Step I: Fetching data from backend
 Now, it is time to learn how to post and fetch filter data from the backend.
 
 We have created a fake REST-API using [json-server](https://www.npmjs.com/package/json-server).
@@ -709,53 +710,71 @@ superagent
 ```
 
 Note that `response.body` is already a javascript object, so there is no need
-for `JSON.parse`.
+for `JSON.parse`. You can find some useful snippets for our API in [API.md](API.md)
 
-You can find some useful snippets for our API in [API.md](API.md)
-
-We want to fetch the data from `/api/filters` and use this to initialize our app.
+We want to fetch the data from `/api/filters` and use this to initialize our app, i.e. set the state of our `filters` reducer.
 We will fetch this data by doing our http request in a new action creator `fetchFilters` in the file `actions/apiActions.js`.
-We will call this action creator on app startup in the `index.js` file like so
-```
-store.dispatch(fetchFilters());
-```
-
+Before we do this, let's learn some more about action creators.
 So far our action creators have returned plain action objects such as:
 
 ```javascript
-function fetchFilters() {
+function startRequest() {
   return {
-    type: FILTERS_RECEIVED
+    type: REQUEST_STARTED
   }
 }
 ```
 
-But in Redux, action creators can also return functions. If you return a function,
-you will get `dispatch` as an argument so we can do this:
+But in Redux, if you have a library called `thunk` (which we have already included in the node_modules and also set up for you in `configureStore.js`), action creators can also return functions.
+If you return a function, you will get `dispatch` as an argument so we can do this:
 
 ```javascript
-fetchFilters() {
+function startAsyncRequest() {
  return dispatch => {
     dispatch({
-      type: FILTERS_RECEIVED
+      type: ASYNC_REQUEST_STARTED
     });
   }
 }
 ```
+For api-requests this means that when we initiate an API-call, we can first dispatch an action saying "a request has started", in our case: `FILTERS_REQUEST_STARTED`.
+This is helpful if we, for instance, want to show a spinner in the GUI.
+After dispatching this action, we can start our api call and dispatch a new action when we receive a response, for instance `FILTERS_REQUEST_FAILED` or `FILTERS_REQUEST_SUCCEEDED`.
+We should end up with something like this
 
+```javascript
+dispatch({ type: 'REQUEST_STARTED' });
 
+request('/api', function (err, result) {
+  if (err) {
+    dispatch({ type: 'REQUEST_FAILED', err });
+  } else {
+    dispatch({ type: 'REQUEST_SUCCEDED', result });
+  }
+});
+```
 
-Now call the `/api/filters` endpoint and dispatch a `FILTER_FETCHED` action on a
-successful (200 OK) response.
+Implement the action creator `fetchFilters` where you call the `/api/filters` endpoint and dispatch a `FILTER_REQUEST_SUCCEEDED` action on a successful (200 OK) response.
+Call this action creator on app startup in the `index.js` file like so.
+```
+store.dispatch(fetchFilters());
+```
 Test to see if it works by inspecting the dev tools panel.
 
 Now it is time to implement the corresponding reducer in reducers/filters.js.
 First, set `initialState = []` since we will now fetch the filter data from the
 response returned from the API.
-Next, expand the switch statement to act on your new `FILTER_FETCHED` action.
+Next, expand the switch statement to act on your new `FILTER_REQUEST_SUCCEEDED` action.
+If you are succesfull, the filters in the db.json file should be visible in your gui.
+You should also find a way to handle a failed response, by showing an error message.
+Lastly, try showing a loading message when you are waiting for the async request.
 
-When you have completed this task you should be able to open all the windows
-with the new data.
+### Step II: Posting data to the backend
+Lastly, it is time to finish the CRUD process, namely save the data in the form when you click the submit button.
+We think, by know, you have learned enough to be able to complete this task on your own. See it as a challenge!
+Hint: take a look at the [API.md](API.md) file.
+
+
 
 
 
