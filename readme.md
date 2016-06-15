@@ -135,6 +135,12 @@ Use an `if`-statement in your reducer function to increment the state only when 
 
 Running your app with these additions yields disappointing results in the browser. The problem is that even though we are updating the value of our state, we're not rendering this new state to the page.
 
+
+> ##### A note on immutability
+
+> Remember that part about immutability? A reducer needs to always return a *new* reference whenever something has changed - if you return the existing state object (even if you performed some changes to it!), Redux won't work properly. Read more on the official [Redux docs.](http://redux.js.org/docs/basics/Reducers.html) 
+
+
 ### Step IV: Subscribing to store change and re-rendering
 
 Lets refactor our rendering method into its own function:
