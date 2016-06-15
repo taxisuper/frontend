@@ -135,18 +135,12 @@ Use an `if`-statement in your reducer function to increment the state only when 
 
 Running your app with these additions yields disappointing results in the browser. The problem is that even though we are updating the value of our state, we're not rendering this new state to the page.
 
-
-> ##### A note on immutability
-
-> Remember that part about immutability? A reducer needs to always return a *new* reference whenever something has changed - if you return the existing state object (even if you performed some changes to it!), Redux won't work properly. Read more on the official [Redux docs.](http://redux.js.org/docs/basics/Reducers.html) 
-
-
 ### Step IV: Subscribing to store change and re-rendering
 
-Lets refactor our rendering method into its own function:
+Let's refactor our rendering method into its own function:
 
 ```javascript
-function render() {
+function renderApp() {
     document.body.innerText = store.getState();
 }
 ```
@@ -156,7 +150,7 @@ All that's left is to tell the store object to let us know whenever something ch
 Make sure you still render the initial state upon app startup by calling render manually.
 
 ```javascript
-store.subscribe(render);
+store.subscribe(renderApp);
 ```
 
 Now the counter in your app should increase with every click inside the browser window.
@@ -183,7 +177,7 @@ The component might look something like this:
 
 ```javascript
 function Counter(props) {
-  return <div>{props.counter}</div>;
+  return <div className="yellow-counter">{props.counter}</div>;
 }
 ```
 
@@ -209,7 +203,7 @@ render(component, document.querySelector('#app'))
 
 ## Task 2: Rendering a Tweet Component
 
-Now we've explored the basic concepts of an application built using React and Redux. The rest of the workshop consist mostly of applying these concepts at scale - e.g how do we build real world applications, how do we do asynchronous network calls, how do compose our component hierarchy, etc.
+Now we've explored the basic concepts of an application built using React and Redux. The rest of the workshop consist mostly of applying these concepts at scale - e.g how do we build real world applications, how do we do asynchronous network calls, how do we compose our component hierarchy, etc.
 
 We'll do this by building a Twitter Dashboard app, as you've probably understood by now. Let's do the first small step of this process by creating a React component that will render a Tweet. This will be a central part of our app and we'll use it throughout the rest of the workshop.
 
@@ -243,6 +237,7 @@ The component should output the following HTML. This is needed to get the correc
 * The component should return the given HTML structure
 * The component should accept a prop called `tweet`
 * The component should be passed a tweet datastructure, found in `example-tweet.js`
+* Render your new component using the `renderApp` function you created earlier.
 
 When this is done you should see a tweet rendered on the page.
 
@@ -250,10 +245,11 @@ Instead of manually sending in some hardcoded data from a file to the component,
 
 ##### Do the following:
 
-* Change the initial state from a single number (the counter) to a an empty object, in anticipation of a tweet
+* Change the initial state from a single number (the counter) to `null`, in anticipation of a tweet
 * Dispatch an action with type `'TWEET_RECEIVED'` containing the tweet data
 * Make the reducer return the received tweet as the new state
 * Make sure the component is rendered each time the state is updated
+* Note: your Tweet component should handle the initial state case
 
 Now you should still see the tweet on the page, but you should feel warm and fuzzy inside knowing that you've done it all according to protocol, Redux style!
 
@@ -269,7 +265,7 @@ const MAX_TWEETS = 1000;
 
 ws.onmessage = ms => {
   const tweet = JSON.parse(ms.data);
-  if (store.getState().tweets.length < MAX_TWEETS) {
+  if (store.getState().length < MAX_TWEETS) {
 	// add new tweet here by dispatching action
   }
 };
@@ -277,11 +273,11 @@ ws.onmessage = ms => {
 
 Read the snippet carefully. We'll query the state to see if we have more than a certain threshold number of tweets, and if not, we'll dispatch a certain action.
 
-Now that we're keeping more than just one tweet at a time, we'll have to change the shape of our state.  Also, as our app is growing, having the reducer function in our `index.js` feels like the college student still living with his parents - lets move it into its own file.
+Now that we're keeping more than just one tweet at a time, we'll have to change the shape of our state.  Also, as our app is growing, having the reducer function in our `index.js` feels like the college student still living with his parents - let's move it into its own file.
 
 ##### Do the following:
 
-* Change the initial state from just an object to an empty array.
+* Change the initial state from just `null` to an empty array.
 * Dispatch `'TWEET_RECEIVED'` whenever a new tweet is received through the WebSocket
 * Move the tweet reducer function to `/reducers/tweets.js` (use `export default` there and `import tweets from './reducers/tweets'` in `index.js`)
 * Make sure the tweet reducer adds any new tweets that it receives to the array of existing tweets
@@ -305,7 +301,7 @@ As this will be the beginning of a larger application we want to create a root c
 
 Example HTML from `<App>`
 ```html
-<ul className="tweetList">
+<ul className="tweetlist">
   <li><Tweet /></li>
   <li><Tweet /></li>
 </ul>
@@ -338,7 +334,7 @@ You might notice that `<App>` is not getting the `tweets` list as a prop here. T
 
 `connect` is a so-called higher order component that, simply put, "connects" a component to our redux store. It's first argument is a function that gets the state as an argument and returns an object. This function is called `mapStateToProps`. The object returned from `mapStateToProps` will be given as props to the component that `connect` wraps.
 
-In other words - `connect` lets us describe what parts of the state a component is interested in, and automatically injects it as props to the component.
+In other words - `connect` let's us describe what parts of the state a component is interested in, and automatically injects it as props to the component.
 
 Your task now is to write a `mapStateToProps` function that takes the state as an argument and returns an object with the list of `tweets` as one of the properties. When you have done this, export the `<App>` component like this:
 
@@ -464,6 +460,7 @@ We are making a single page app, and as such we want to be able to navigate arou
 
 Now, create a new component, `containers/Link.jsx`.
 This component should accept three props:
+
 1. `to` - relative URL
 1. `dispatch` - the same function as we earlier called on the `store` object
 1. `className` - a regular CSS class
@@ -609,7 +606,7 @@ Let's make our utility function reusable by putting it in a separate file and im
 When you have completed this task, only tweets that match the active filter should show up in the Feed and on the Map.
 
 ### Step III: Adding color
-Edit your `getViewTweets` function so that it not only filters the tweets, but also adds the prop color of the filter it matches. Remember we did something like this for the `currentTeet`?
+Edit your `getViewTweets` function so that it not only filters the tweets, but also adds the prop color of the filter it matches. Remember we did something like this for the `currentTweet`?
 If a tweet does not match any filters, use the color red.
 If you have used the correct CSS classes, both the Map and the Feed should now clearly indicate which filter the tweets match.
 
