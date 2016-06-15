@@ -299,7 +299,7 @@ As this will be the beginning of a larger application we want to create a root c
 
 Example HTML from `<App>`
 ```html
-<ul classname="tweetList">
+<ul className="tweetList">
   <li><Tweet /></li>
   <li><Tweet /></li>
 </ul>
