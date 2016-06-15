@@ -53,7 +53,7 @@ The reducer is a core concept in redux - they are functions that perform transfo
 The function signature for a reducer looks like this:
 
 ```haskell
-(state, action) => new state
+(state, action) -> new state
 ```
 
 The responsibility of a reducer is simply to return a new version of the state whenever something happens. The reducer is passed the current state, and an action object describing the event that happened. This might be a user interaction, or an ajax response - basically everything that might trigger a change in our application state. We'll come back to these in just a bit.
@@ -263,7 +263,7 @@ const MAX_TWEETS = 1000;
 
 ws.onmessage = ms => {
   const tweet = JSON.parse(ms.data);
-  if (store.getState().length < MAX_TWEETS) {
+  if (store.getState().tweets.length < MAX_TWEETS) {
 	// add new tweet here by dispatching action
   }
 };
