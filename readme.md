@@ -162,7 +162,7 @@ Of course, this example app is trivial and only serves to help explain the core 
 
 ### Step V: Using React to render the app
 
-React is a wildly popular frontend library by Facebook for creating graphical user interfaces. Hopefully you've got some experience with React before starting this workshop, but if that's not the case - fear not! React, when used with Redux, it pretty simple and can be learned pretty quickly.
+React is a wildly popular frontend library by Facebook for creating graphical user interfaces. Hopefully you've got some experience with React before starting this workshop, but if that's not the case - fear not! React, when used with Redux, is pretty simple and can be learned pretty quickly.
 
 We've created a separate document explaining the very basics of React, located [here](./react-intro.md).
 
@@ -233,7 +233,7 @@ The component should output the following HTML. This is needed to get the correc
 
 ##### Do the following:
 
-* Create a `Tweet` component and put it in  `components/Tweet.jsx` (existing file)
+* Create a `Tweet` component and put it in  `components/Tweet.jsx` (you will have to create this file)
 * The component should return the given HTML structure
 * The component should accept a prop called `tweet`
 * The component should be passed a tweet datastructure, found in `example-tweet.js`
@@ -451,7 +451,7 @@ export default rootReducer;
 ```
 
 Now, if you open the app you will see that the list of tweets is not working. Fix this.
-Hint: we changed the shape of the `state` so you will have to modify the `mapStateToProps` function we created earlier.
+Hint: we changed the shape of the `state` so you will have to modify the `mapStateToProps` and the websocket callback functions we created earlier.
 
 When you're done with this the app should work exactly as before.
 
