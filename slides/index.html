@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Webutvikling 101</title>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/bekk/remark/master/dist/bekk.css">
+    <link rel="stylesheet" href="slides.css">
+  </head>
+  <body class="bekk-black">
+    <textarea id="source">
+
+class: front-page
+  # React + Redux workshop
+
+## Kurs for nyansatte i BEKK
+
+Ingar Almklov og Guro Seternes
+
+???
+
+* Hvem er vi?
+* Hvor lenge har vi jobbet i BEKK?
+* Hvor er vi på prosjekt?
+* Bruker vi RR på prosjekt?
+* Hvor mange workshoper har vi holdt? Sju.
+* Agenda
+
+---
+class: agenda
+
+* Nå: introduksjonsforedrag
+* Etterpå: oppgavejobbing
+* Lønsj
+* Mer oppgaver
+
+---
+
+#Introduksjon
+
+Veldig mange BEKK-prosjekter bruker React for frontend
+
+De fleste av disse bruker også Redux sammen med React
+
+--
+<br />
+<br />
+<br />
+
+React er et JavaScript-bibliotek for generering av HTML
+
+--
+
+Redux er et JavaScript-bibliotek for håndtering av tilstand
+
+???
+
+Tilstand:
+* Data fra server
+* Vises denne popup-en?
+
+---
+
+#Skalering av frontend-apps
+
+Direkte DOM-manipulasjon er egentlig ikke noen god idé
+
+???
+
+Tidligere kursdager har mutert DOM direkte
+
+Vanlig i jQuery-dagene, men fungerer dårlig i større skala
+
+Vanskelig å skjønne hva som er konsekvensen av en endring
+
+R+R har blitt en slags "industristandard"
+
+--
+
+```javascript
+function renderMessage(message) {
+  var messageElement = document.querySelector('#messages');
+
+  var messageHtml = `
+    <div class="message">
+      <span class="name">${message.name}</span>
+      <span class="text">${message.message}</span>
+    </div>
+  `;
+
+  messageElement.innerHTML = messageHtml + messageElement.innerHTML;
+}
+```
+
+???
+
+Eksempel med reaksjoner på chat-meldinger
+
+* Liste med chat-meldinger
+* Mulighet for å legge til en emoji på en tidligere melding
+* Vanskelig å få til hvis man ikke holder på tilstanden selv i applikasjonen (f.eks. når man bare skriver til DOM)
+
+---
+class: middle center
+
+![slackbilde med reaksjoner](slack.png)
+
+---
+
+#Redux
+
+Brukes for tilstandshåndtering
+
+--
+
+I vårt tilfelle for eksempel:
+* En liste med meldinger
+* En liste med aktive brukere
+
+```javascript
+var state = {
+  messages: [ ... ],
+  users: [ ... ]
+};
+```
+
+---
+
+#Vise flere meldinger som kan endre seg over tid
+
+```javascript
+function renderMessage(message) {
+  return `
+    <div class="message">
+      <span class="name">${message.name}</span>
+      <span class="text">${message.message}</span>
+      <span class="emoji">${message.emoji}</span>
+    </div>
+  `;
+}
+
+function renderMessages(messages) {
+  var messagesHtml = '';
+  for (var i = 0; i < messages.length; i++) {
+    messagesHtml = messagesHtml + renderMessage(message);
+  }
+
+  var messageElement = document.querySelector('#messages');
+  messageElement.innerHTML = messagesHtml;
+}
+```
+
+???
+
+View som en funksjon av nåtilstand i appen
+
+Lett å rendre emoji på rett plass
+
+---
+
+#Re-rendring
+
+Gammel:
+```javascript
+ws.onmessage = function(message) {
+  renderMessage(message);
+};
+```
+
+--
+
+Ny:
+```javascript
+var state = {
+  messages: [],
+  users: []
+};
+
+ws.onmessage = function(message) {
+  state.messages.push(message);
+  renderMessages(state.messages);
+};
+```
+
+???
+
+Holder orden på tilstand selv
+
+Bytter ut DOM-en når vi får inn en ny melding - dette er DYRT, går tregt
+
+---
+
+#React - Virtuell DOM
+
+Gjør at vi veldig billig kan re-rendre hele viewet
+
+Smarte algoritmer laget av smarte folk hos Facebook
+
+???
+
+Eksempel: 100 meldinger, liker den første (som kanskje ikke vises engang)
+
+Ferdig med intro til konsepter
+
+Nå: litt mer teknisk
+
+---
+
+class: center middle
+
+# Livets sykel
+
+???
+
+Tegn og forklar
+
+---
+
+#Redux-konsepter
+
+#### Action - et JavaScript-objekt
+Må ha en property som heter `type`
+```javascript
+{ type: 'MESSAGE_RECEIVED', message: 'hei' }
+```
+
+--
+
+#### Action creator - en funksjon som returnerer en `action`
+```javascript
+function receiveMessage() {
+  return { type: 'MESSAGE_RECEIVED', message: 'hei' };
+}
+```
+
+---
+
+#Redux-konsepter
+
+#### Reducer - en funksjon som tar inn en tilstand og en `action` og kalkulerer ny tilstand
+```javascript
+const initialState = [];
+function messagesReducer(state = initialState, action) {
+  if (action.type === 'MESSAGE_RECEIVED') {
+    return [
+      ...state.messages,
+      action.message
+    ];
+  } else {
+    return state;
+  }
+}
+```
+
+???
+
+Forklar
+* Default argument
+* Array spread
+
+Det var redux på to minutter
+
+---
+
+#React - komponent
+
+```javascript
+function MessageComponent(props) {
+  return (
+    <div className="message">
+      <span className="name">{props.message.name}</span>
+      <span className="text">{props.message.message}</span>
+      <span className="emoji">{props.message.emoji}</span>
+    </div>
+  );
+}
+
+function renderMessage(message) {
+  ReactDOM.render(
+    <MessageComponent message={message} />,
+    document.querySelector('#message')
+  );
+}
+```
+
+???
+
+Forklar
+* `props`
+* `class` vs. `className`
+* JSX vs. JavaScript
+* De to argumentene til `render`
+
+---
+
+#React - kombinere komponenter
+
+```javascript
+function MessageWithHeader(props) {
+  return (
+    <div>
+      <h2>Melding</h2>
+      <MessageComponent message={props.message} />
+    </div>
+  );
+}
+
+function renderMessageWithHeader(message) {
+  ReactDOM.render(
+    <MessageWithHeader message={message} />,
+    document.querySelector('#message')
+  );
+}
+```
+
+---
+
+#React - kombinere komponenter
+
+```javascript
+function MessageList(props) {
+  return (
+    <ul>
+      {
+        props.messages.map(message =>
+          <li>
+            <MessageComponent message={props.message} />
+          </li>
+        )
+      }
+    </ul>
+  );
+}
+
+function renderMessageList(messages) {
+  ReactDOM.render(
+    <MessageList messages={messages} />,
+    document.querySelector('#messages')
+  );
+}
+```
+
+---
+
+class: center middle
+
+# Oppgaver!
+
+#### Oppgaver ligger i `README.md` på Github
+
+???
+
+Ingen faste pauser bortsett fra lønsj
+
+---
+
+class: center middle bekk-top
+
+# Takk for oss!
+
+???
+
+Takk til Erik Wendel
+
+Takk til Mats
+
+---
+
+class: middle center
+
+# Dan Abramov og Guro
+
+![Guro + Dan = sant](gurodan.jpg)
+
+    </textarea>
+    <script src="https://cdn.rawgit.com/bekk/remark/master/vendor/remark.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      'use strict';
+      var slideshow = remark.create({
+        ratio: '16:9',
+        highlightLanguage: 'javascript',
+        highlightStyle: 'monokai',
+        navigation: {
+          scroll: false
+        },
+          highlightLines: true
+      });
+
+    </script>
+  </body>
+</html>

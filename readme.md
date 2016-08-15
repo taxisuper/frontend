@@ -247,7 +247,7 @@ Instead of manually sending in some hardcoded data from a file to the component,
 
 * Change the initial state from a single number (the counter) to `null`, in anticipation of a tweet
 * Dispatch an action with type `'TWEET_RECEIVED'` containing the tweet data
-* Make the reducer return the received tweet as the new state
+* Make the reducer return the received tweet as the new state when the action's `type` is `'TWEET_RECEIVED'`
 * Make sure the component is rendered each time the state is updated
 * Note: your Tweet component should handle the initial state case
 
@@ -280,8 +280,15 @@ Now that we're keeping more than just one tweet at a time, we'll have to change 
 * Change the initial state from just `null` to an empty array.
 * Dispatch `'TWEET_RECEIVED'` whenever a new tweet is received through the WebSocket
 * Move the tweet reducer function to `/reducers/tweets.js` (use `export default` there and `import tweets from './reducers/tweets'` in `index.js`)
-* Make sure the tweet reducer adds any new tweets that it receives to the array of existing tweets
+* Make sure the tweet reducer returns a new array containing all the previously received tweets plus the new one
 * Change the input (props) passed to our `<Tweet>` component so it only receives the newest tweet in the array
+
+```
+Note on reducers
+
+A reducer has to be a _pure_ function. Your reducer should always _create_ the new state,
+not modify the old one.
+```
 
 Voila! Now our app is set up to receive lots of tweets from the streaming API, showing the most recently received tweet.
 
@@ -442,8 +449,11 @@ In our case it will look like this:
 ```javascript
 import { combineReducers } from 'redux';
 
+import tweetReducer from './tweets';
+import routeReducer from './route';
+
 const rootReducer = combineReducers({
-  cards: cardsReducer,
+  tweets: tweetReducer,
   route: routeReducer
 });
 
@@ -802,10 +812,3 @@ to run your tests in "watch mode". This mode will rerun your tests when you upda
 The test runner will pick up files ending with `*.test.js`, for example the file `reducers/view.test.js`.
 
 Hopefully by now you will have noticed that we have written our whole app using pure functions (_even our React components!_), so testing them should be a breeze!
-
-
-
-
-
-
-
