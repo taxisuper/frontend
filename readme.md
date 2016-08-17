@@ -583,7 +583,8 @@ We would like to render a list of different filters, thus, create a `FilterList`
 </div>
 ```
 
-Put the `FilterList` component in a new file and let this component be a child of the `Map` and `Feed` components.
+Put the `FilterList` component in a new file and let this component be a child of the `Map` component. Create a new component, `Filter` and put the TweetFilter and FilterList components inside this "wrapper" component. Make sure you fix the routing, so that it routes to the Filter component instead of the TweetFilter component.
+
 Pass the state from your newly created `filters`-reducer down to the `FilterList` component.
 Hint: In the `mapStateToProps` function at the bottom of the `Map` and `Feed`components, you should pick up `filters`from the `state` object.
 
