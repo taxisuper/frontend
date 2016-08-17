@@ -37,20 +37,22 @@ class: agenda
 
 #Introduksjon
 
-Veldig mange BEKK-prosjekter bruker React for frontend
-
-De fleste av disse bruker også Redux sammen med React
-
---
-<br />
-<br />
-<br />
-
 React er et JavaScript-bibliotek for generering av HTML
 
 --
 
 Redux er et JavaScript-bibliotek for håndtering av tilstand
+
+--
+
+<br />
+<br />
+<br />
+
+Veldig mange BEKK-prosjekter bruker React for frontend
+
+De fleste av disse bruker også Redux sammen med React
+
 
 ???
 
@@ -66,13 +68,15 @@ Direkte DOM-manipulasjon er egentlig ikke noen god idé
 
 ???
 
-Tidligere kursdager har mutert DOM direkte
+Tidligere kursdager har mutert DOM direkte (vis eksempel)
 
-Vanlig i jQuery-dagene, men fungerer dårlig i større skala
+Vanlig i jQuery-dagene, men fungerer dårlig i større skala + SPA
 
-Vanskelig å skjønne hva som er konsekvensen av en endring
+Problem 1: Vanskelig å skjønne hva som er konsekvensen av en endring.
+Vanskelig å se på koden hvordan appen vil se ut når det skjer en ny interaksjon
 
-R+R har blitt en slags "industristandard"
+Problem 2: Vanskelig å bygge en kompleks app -> k   ronglete kode som er vanskelig å følge
+
 
 --
 
@@ -91,6 +95,13 @@ function renderMessage(message) {
 }
 ```
 
+
+
+---
+class: middle center
+
+![slackbilde med reaksjoner](slack.png)
+
 ???
 
 Eksempel med reaksjoner på chat-meldinger
@@ -100,15 +111,14 @@ Eksempel med reaksjoner på chat-meldinger
 * Vanskelig å få til hvis man ikke holder på tilstanden selv i applikasjonen (f.eks. når man bare skriver til DOM)
 
 ---
-class: middle center
-
-![slackbilde med reaksjoner](slack.png)
-
----
 
 #Redux
 
 Brukes for tilstandshåndtering
+
+???
+I Redux er hovedtanken at du har all tilstand samlet i et javascript objekt, i stedet for at tilstanden "lever i dommen"
+R+R har blitt en slags "industristandard"
 
 --
 
@@ -122,6 +132,8 @@ var state = {
   users: [ ... ]
 };
 ```
+
+
 
 ---
 
@@ -151,9 +163,13 @@ function renderMessages(messages) {
 
 ???
 
+Samme input, gir samme output
+
+En veldig forutsigbar app
+
 View som en funksjon av nåtilstand i appen
 
-Lett å rendre emoji på rett plass
+
 
 ---
 
