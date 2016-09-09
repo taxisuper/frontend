@@ -36,3 +36,7 @@ div.col > pre {
 .remark-code-line-highlighted {
   background-color: rgb(74, 74, 74);
 }
+
+.image-small {
+  width: 300px;
+}
