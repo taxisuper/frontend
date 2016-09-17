@@ -1,11 +1,7 @@
-import React, {PropTypes, Component} from 'react';
+import React, {PropTypes} from 'react';
 import CalendarItem from './CalendarItem.jsx';
 
-class Calendar extends Component {
-
-  render(
-    
-  )
+function Calendar() {
   return (
       <div className="calendar">
         <div className="header">Kalender</div>
