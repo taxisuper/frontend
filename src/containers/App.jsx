@@ -9,17 +9,20 @@ import Calendar from './Calendar.jsx';
 import { Router, Route, IndexRoute, Redirect, useRouterHistory } from 'react-router';
 
 function App({route, tweetCount}) {
+  const renderCorrectRoute = (route) => {
+    if (route === '/calendar') {
+      return <Calendar/>
+    } else if ( route === '/activities') {
+      return <Activities/>
+    } else {
+      return <DashBoard/>
+    }
+  };
+
   return (
     <div>
       <AppHeader tweetCount={ tweetCount } />
-      <If condition={ route === '/calendar' }>
-        <IfChild>
-          <Calendar />
-        </IfChild>
-        <IfChild>
-          <DashBoard />
-        </IfChild>
-      </If>
+      {renderCorrectRoute(route)}
     </div>
   );
 }
