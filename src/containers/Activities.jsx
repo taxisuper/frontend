@@ -8,9 +8,9 @@ function Activities() {
       <div className="content">
         <div >
           <ul className="activity-list">
-            <AcitivityItem name="Fotballtrening G13" organization="Fotballklubben FK" />
-            <AcitivityItem name="Fotballtrening G13" organization="Fotballklubben FK" />
-            <AcitivityItem name="Fotballtrening G13" organization="Fotballklubben FK" />
+            <AcitivityItem name="Fotballtrening G13" organization="Fotballklubben FK" activated={true} />
+            <AcitivityItem name="Fotballtrening G13" organization="Fotballklubben FK" activated={false}/>
+            <AcitivityItem name="Fotballtrening G13" organization="Fotballklubben FK" activated={false}/>
           </ul>
           </div>
       </div>
@@ -18,12 +18,19 @@ function Activities() {
   );
 }
 
-function AcitivityItem({name, organization}){
+function AcitivityItem({name, organization, activated}){
+  console.log(activated);
   return (
-    <li className="acitivity-list-item">
-      <p><strong>{name}</strong></p>
-      <p>{organization}</p>
-      <input type="checkbox" />
+    <li className="acitivity-list-item clearfix">
+      <div className="activity-item-left-content">
+        <h4 className="activity-item-header">{name}</h4>
+        <p className="activity-faded-text">{organization}</p>
+      </div>
+        <div className="activity-item-right-content">
+        <button onClick='{() => {activated = !activated}}' className="{activated ? 'activated' : 'disabled' }">
+          {activated ? 'activated' : 'disabled'}
+        </button>
+      </div>
     </li>
   )
 }
