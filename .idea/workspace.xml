@@ -1,0 +1,1504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="59ebe191-1b22-401f-a879-34149fa99b7d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/frontend.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/frontend_node_modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index-solution.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/AppHeader.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/AppHeader.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/CountryList.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/CountryList.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/CurrentTweet.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/FilterList.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/Flag.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/InfluentialTweets.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/InputField.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/SelectField.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/Timer.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/Tweet.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/Tweet.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/TweetFeed.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/Calendar.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/DashBoard.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/If.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/IfChild.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/Link.jsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/index-react-rendered.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reducers/countries.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reducers/filters.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reducers/filters.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reducers/form.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reducers/route.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reducers/tweets.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reducers/view.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reducers/view.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/task1.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/util/countries.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/util/countries.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/util/filters.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/util/filters.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/util/selectors.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/util/withState.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/API.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/npm-shrinkwrap.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ad.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ae.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/af.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ag.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ai.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/al.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/am.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ao.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/aq.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ar.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/as.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/at.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/au.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/aw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ax.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/az.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ba.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/bb.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/bd.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/be.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/bf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/bg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/bh.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/bi.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/bj.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/bl.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/bm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/bn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/bo.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/bq.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/br.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/bs.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/bt.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/bv.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/bw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/by.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/bz.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ca.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/cc.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/cd.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/cf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/cg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ch.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ci.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ck.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/cl.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/cm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/cn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/co.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/cr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/cu.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/cv.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/cw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/cx.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/cy.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/cz.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/de.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/dj.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/dk.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/dm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/do.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/dz.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ec.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ee.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/eg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/eh.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/er.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/es.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/et.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/fi.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/fj.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/fk.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/fm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/fo.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/fr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ga.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/gb.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/gd.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ge.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/gf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/gg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/gh.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/gi.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/gl.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/gm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/gn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/gp.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/gq.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/gr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/gs.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/gt.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/gu.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/gw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/gy.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/hk.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/hm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/hn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/hr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ht.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/hu.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/id.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ie.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/il.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/im.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/in.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/io.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/iq.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ir.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/is.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/it.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/je.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/jm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/jo.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/jp.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ke.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/kg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/kh.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ki.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/km.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/kn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/kp.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/kr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/kw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ky.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/kz.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/la.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/lb.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/lc.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/li.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/lk.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/lr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ls.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/lt.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/lu.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/lv.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ly.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ma.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/mc.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/md.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/me.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/mf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/mg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/mh.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/mk.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ml.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/mm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/mn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/mo.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/mp.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/mq.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/mr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ms.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/mt.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/mu.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/mv.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/mw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/mx.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/my.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/mz.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/na.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/nc.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ne.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/nf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ng.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ni.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/nl.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/no.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/np.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/nr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/nu.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/nz.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/om.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/pa.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/pe.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/pf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/pg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ph.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/pk.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/pl.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/pm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/pn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/pr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ps.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/pt.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/pw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/py.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/qa.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/re.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ro.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/rs.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ru.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/rw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/sa.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/sb.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/sc.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/sd.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/se.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/sg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/sh.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/si.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/sj.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/sk.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/sl.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/sm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/sn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/so.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/sr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ss.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/st.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/sv.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/sx.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/sy.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/sz.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/tc.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/td.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/tf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/tg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/th.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/tj.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/tk.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/tl.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/tm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/tn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/to.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/tr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/tt.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/tv.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/tw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/tz.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ua.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ug.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/um.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/us.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/uy.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/uz.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/va.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/vc.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ve.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/vg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/vi.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/vn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/vu.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/wf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ws.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/ye.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/yt.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/za.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/zm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/1x1/zw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ad.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ae.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/af.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ag.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ai.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/al.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/am.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ao.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/aq.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ar.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/as.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/at.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/au.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/aw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ax.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/az.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ba.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/bb.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/bd.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/be.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/bf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/bg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/bh.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/bi.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/bj.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/bl.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/bm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/bn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/bo.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/bq.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/br.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/bs.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/bt.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/bv.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/bw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/by.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/bz.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ca.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/cc.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/cd.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/cf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/cg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ch.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ci.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ck.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/cl.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/cm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/cn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/co.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/cr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/cu.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/cv.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/cw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/cx.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/cy.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/cz.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/de.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/dj.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/dk.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/dm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/do.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/dz.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ec.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ee.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/eg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/eh.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/er.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/es.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/et.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/fi.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/fj.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/fk.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/fm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/fo.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/fr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ga.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/gb.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/gd.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ge.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/gf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/gg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/gh.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/gi.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/gl.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/gm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/gn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/gp.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/gq.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/gr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/gs.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/gt.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/gu.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/gw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/gy.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/hk.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/hm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/hn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/hr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ht.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/hu.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/id.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ie.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/il.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/im.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/in.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/io.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/iq.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ir.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/is.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/it.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/je.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/jm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/jo.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/jp.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ke.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/kg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/kh.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ki.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/km.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/kn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/kp.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/kr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/kw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ky.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/kz.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/la.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/lb.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/lc.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/li.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/lk.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/lr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ls.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/lt.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/lu.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/lv.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ly.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ma.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/mc.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/md.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/me.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/mf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/mg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/mh.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/mk.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ml.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/mm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/mn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/mo.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/mp.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/mq.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/mr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ms.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/mt.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/mu.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/mv.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/mw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/mx.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/my.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/mz.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/na.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/nc.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ne.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/nf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ng.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ni.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/nl.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/no.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/np.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/nr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/nu.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/nz.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/om.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/pa.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/pe.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/pf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/pg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ph.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/pk.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/pl.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/pm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/pn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/pr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ps.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/pt.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/pw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/py.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/qa.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/re.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ro.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/rs.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ru.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/rw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/sa.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/sb.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/sc.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/sd.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/se.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/sg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/sh.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/si.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/sj.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/sk.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/sl.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/sm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/sn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/so.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/sr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ss.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/st.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/sv.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/sx.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/sy.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/sz.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/tc.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/td.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/tf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/tg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/th.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/tj.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/tk.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/tl.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/tm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/tn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/to.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/tr.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/tt.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/tv.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/tw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/tz.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ua.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ug.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/um.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/us.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/uy.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/uz.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/va.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/vc.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ve.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/vg.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/vi.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/vn.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/vu.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/wf.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ws.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/ye.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/yt.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/za.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/zm.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/flags/4x3/zw.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/slides/gurodan.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/slides/gurodanMedPil.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/slides/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/slides/slack.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/slides/slides.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/Map.jsx" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app.css" afterPath="$PROJECT_DIR$/public/app.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.md" afterPath="$PROJECT_DIR$/readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/actions/index.js" afterPath="$PROJECT_DIR$/src/actions/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/TweetFeed.jsx" afterPath="$PROJECT_DIR$/src/components/TweetFeed.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/TweetMap.jsx" afterPath="$PROJECT_DIR$/src/components/TweetMap.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/App.jsx" afterPath="$PROJECT_DIR$/src/containers/App.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/DevTools.js" afterPath="$PROJECT_DIR$/src/containers/DevTools.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example-tweet.js" afterPath="$PROJECT_DIR$/src/example-tweet.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/index.js" afterPath="$PROJECT_DIR$/src/reducers/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/tweets.js" afterPath="$PROJECT_DIR$/src/reducers/tweets.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/twitter-setup.md" afterPath="$PROJECT_DIR$/twitter-setup.md" />
+    </list>
+    <ignored path="frontend.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="frontend" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="App.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/containers/App.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="35" column="45" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/gulpfile.babel.js" />
+        <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/src/containers/App.jsx" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="95" />
+    <option name="y" value="35" />
+    <option name="width" value="1438" />
+    <option name="height" value="783" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="containers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="actions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="options.lastSelected" value="preferences.sourceCode.JSPX" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="js.eslint.nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="JavaScriptPreferStrict" value="false" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnitTestDiscovery" factoryName="JUnit Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SCRATCH_FILE_ID" value="0" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="frontend" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="executeSpecs" factoryName="Gauge Execution">
+      <setting name="environment" value="" />
+      <setting name="specsToExecute" value="" />
+      <setting name="tags" value="" />
+      <setting name="parallelNodes" value="" />
+      <setting name="execInParallel" value="false" />
+      <setting name="programParameters" value="" />
+      <setting name="workingDirectory" value="" />
+      <setting name="moduleName" value="" />
+      <envMap />
+      <setting name="rowsRange" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="59ebe191-1b22-401f-a879-34149fa99b7d" name="Default" comment="" />
+      <created>1474105159447</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1474105159447</updated>
+      <workItem from="1474105160653" duration="3061000" />
+      <workItem from="1474120178587" duration="192000" />
+      <workItem from="1474128256969" duration="994000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="4247000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="95" y="35" width="1438" height="783" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3299566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23137535" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3342981" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/App.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/DevTools.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/tweets.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.eslintignore" />
+    <entry file="file://$PROJECT_DIR$/content/js/portal/components/CompletedJobsLogTable.jsx" />
+    <entry file="file://$PROJECT_DIR$/gulpfile.babel.js" />
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/index.html" />
+    <entry file="file://$PROJECT_DIR$/content/js/common/validation/validators.js" />
+    <entry file="file://$PROJECT_DIR$/content/js/portal/store/rootReducer.js" />
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/DevTools.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/actions/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/tweets.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/App.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="45" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/FilterContainer.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="7" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/FilterForm.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>frontend</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

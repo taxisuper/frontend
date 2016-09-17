@@ -2,15 +2,18 @@ import React, { PropTypes } from 'react';
 import { GoogleMap, Marker, GoogleMapLoader } from 'react-google-maps';
 
 
-function TweetMap({tweets, onTweetClick}) {
+function TweetMap({tweets, showTweet}) {
   const markers = tweets.map(t => {
-    const color = t.color || 'red';
-    const icon = `http://maps.google.com/mapfiles/ms/icons/${color}-dot.png`;
+    const callback = () => {
+      showTweet(t.id);
+    };
+
+    const icon = `http://maps.google.com/mapfiles/ms/icons/${t.color}-dot.png`;
 
     return (
       <Marker
         key={ t.id }
-        onClick={ () => onTweetClick(t) }
+        onClick={ callback }
         icon={ icon }
         position={{ lat: t.geo.coordinates[0], lng: t.geo.coordinates[1] }}
       />
@@ -35,7 +38,7 @@ function TweetMap({tweets, onTweetClick}) {
 
 TweetMap.propTypes = {
   tweets: PropTypes.array.isRequired,
-  onTweetClick: PropTypes.func.isRequired,
+  showTweet: PropTypes.func.isRequired,
   currentTweet: PropTypes.object,
   filters: PropTypes.array
 };

@@ -5,7 +5,7 @@ Visit https://apps.twitter.com
 Click "Create new app". Choose a random app name and description and use
 "http://example.org" as app url.
 
-Go to "Keys and Access Tokens". Create the file `twitter.json` in the root folder of the repository with your
+Go to "Keys and Access Tokens". Create the file `task/twitter.json` with your
 keys and tokens. The file should be on the following format:
 
 ```
@@ -17,9 +17,6 @@ keys and tokens. The file should be on the following format:
 }
 ```
 
-Update `src/index.js` to point to localhost:
-```diff
-- const ws = new WebSocket('ws://twitterws.herokuapp.com');
-+ const ws = new WebSocket('ws://localhost:9999');
-```
+**NB!** There exists a `task/example-twitter.json` that you can copy to
+`task/twitter.json` as a starting point!
 
