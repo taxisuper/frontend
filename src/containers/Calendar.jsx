@@ -1,5 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import CalendarItem from './CalendarItem.jsx';
+import Link from './Link.jsx'
 
 const newActivity = [
   {
@@ -8,7 +9,8 @@ const newActivity = [
     person: 'Andreas',
     activity: 'Fotballkamp',
     time: '17:00',
-    location: 'Ekebergsletta'
+    location: 'Ekebergsletta',
+    week: 35,
   },
   {
     day: 'Onsdag',
@@ -17,6 +19,7 @@ const newActivity = [
     activity: 'Fotballkamp',
     time: '17:00',
     location: 'Drammen',
+    week: 35,
   },
   {
     day: 'Søndag',
@@ -25,6 +28,7 @@ const newActivity = [
     activity: 'Fotballkamp',
     time: '13:00',
     location: 'Hasle kunstrgress',
+    week: 36,
   },
 ];
 
@@ -39,13 +43,15 @@ class Calendar extends Component {
           person: 'Andreas',
           activity: 'Fotballtrening',
           time: '17:00',
+          week: 34
         },
         {
           day: 'Lørdag',
-          date: '3 oktober',
+          date: '1 oktober',
           person: 'Maria',
           activity: 'Moderne dans',
           time: '11:00',
+          week: 35
         }
       ],
       counter: 0
@@ -53,14 +59,21 @@ class Calendar extends Component {
   }
 
   render() {
+    const compareItems = (a, b) => {
+      return a.week > b.week
+    }
+    console.log('Yo');
     return (
       <div className="calendar">
-        <div className="header">Kalender</div>
+        <div className="header">
+          <Link to="/activities" className="button"></Link>
+          Kalender
+        </div>
         <div className="week-header">
           <span className="img-icon img-icon-calendar"></span>Uke 43
         </div>
         <ul className="calendar-list">
-          {this.state.calenderItems.map(item =>
+          {this.state.calenderItems.sort(compareItems).map(item =>
             <CalendarItem
               day={item.day}
               person={item.person}
@@ -78,8 +91,6 @@ class Calendar extends Component {
       </div>
     );
   }
-
-
 }
 
 export default Calendar;

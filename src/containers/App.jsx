@@ -13,11 +13,7 @@ function App({route}) {
     } else if ( route === '/activities') {
       return <Activities/>
     } else {
-      return(
-      <div>
-        <AppHeader/>
-        <DashBoard/>
-      </div>)
+      return <Calendar/>
     }
   };
 
