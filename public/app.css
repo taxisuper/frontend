@@ -26,7 +26,7 @@
 
 body {
     font: normal normal normal 12px/16px "Helvetica Neue",Roboto,"Segoe UI",Calibri,sans-serif;
-  background-color: mintcream;
+  background-color: white;
 }
 
 
@@ -50,6 +50,10 @@ body {
   width: 4em;
 }
 
+.img-icon-calendar {
+  background-image: url("./icons/calendar-icon.png");
+}
+
 .img-icon-settings {
 	background-image: url("./icons/settings.png");
 }
@@ -68,6 +72,27 @@ h1.heading {
   font-size: 40px;
 }
 
+.header {
+  width: 100%;
+  background: #00BCD4;
+  color: white;
+  padding: 1em 0em;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+.week-header {
+  background: #90A4AE;
+  color: white;
+  font-size: 1.2em;
+  padding: 0.7em 0em;
+}
+
+.calendar-element {
+  background: white;
+  border-bottom: 1px solid #90A4AE;
+  padding: 1em 0.2em;
+}
 
 .app-header {
   width: 160px;
@@ -94,6 +119,8 @@ h1.heading {
   margin-left: auto;
   margin-right: auto;
   font-size: 1.3em;
+  padding: 0em 1em;
+  list-style: none;
 }
 
 .button {
