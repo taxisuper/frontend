@@ -109,11 +109,7 @@ h1.heading {
 }
 
 .content {
-  text-align: center;
-  margin-top: 100px;
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 0 8px;
 }
 
 .calendar-list {
@@ -212,4 +208,60 @@ h1.heading {
 
 .circle.inactive {
   display: none;
+}
+
+.acitivity-list-item{
+  list-style: none;
+  margin-top: 20px;
+}
+
+.activity-list{
+  padding: 0;
+}
+
+.activity-item-header{
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.activity-faded-text{
+  color: rgba(20, 20, 20, 0.6);
+  font-size: 16px;
+}
+
+.activity-item-left-content{
+  float:left;
+}
+
+.activity-item-right-content{
+  float:right;
+}
+
+.activity-item-right-content input{
+  margin-top: 25px;
+}
+
+.activity-item-button.disabled {
+  background-color: #e44848;
+}
+
+.activity-item-button.activated{
+  background-color: #4CAF50 ;
+}
+
+.activity-item-button{
+  color: #f4f4f4;
+  border: 1px solid #f4f4f4;
+  width: 100px;
+  padding: 10px 0;
+  margin-top: 12px;
+}
+
+.activity-item-button:focus{
+  outline: none;
+}
+
+.clearfix {
+  overflow: auto;
+  zoom: 1;
 }
