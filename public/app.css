@@ -27,7 +27,6 @@ body {
   background-color: white;
 }
 
-
 .img {
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
@@ -48,8 +47,13 @@ body {
   width: 4em;
 }
 
-.img-icon-calendar {
-  background-image: url("./icons/calendar-icon.png");
+.img-icon-window-restore {
+  background-image: url("./icons/window-restore.png");
+  background-size: cover;
+  display: inline-block;
+  position: absolute;
+  top: 0.5em;
+  left: 0.3em;
 }
 
 .img-icon-settings {

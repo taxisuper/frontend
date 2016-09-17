@@ -27,7 +27,7 @@ const newActivity = [
     person: 'Andreas',
     activity: 'Fotballkamp',
     time: '13:00',
-    location: 'Hasle kunstrgress',
+    location: 'Hasle kunstgress',
     week: 36,
   },
 ];
@@ -43,6 +43,7 @@ class Calendar extends Component {
           person: 'Andreas',
           activity: 'Fotballtrening',
           time: '17:00',
+          location: 'Vallhall',
           week: 34
         },
         {
@@ -51,6 +52,7 @@ class Calendar extends Component {
           person: 'Maria',
           activity: 'Moderne dans',
           time: '11:00',
+          location: 'Oslo Kulturskole',
           week: 35
         }
       ],
@@ -66,7 +68,7 @@ class Calendar extends Component {
     return (
       <div className="calendar">
         <div className="header">
-          <Link to="/activities" className="button"></Link>
+          <Link to="/activities" className="img-icon img-icon-window-restore"></Link>
           Kalender
         </div>
         <div className="week-header">
@@ -80,6 +82,7 @@ class Calendar extends Component {
               date={item.date}
               time={item.time}
               activity={item.activity}
+              location={item.location}
             />)}
         </ul>
         <button className="button" onClick={() => this.setState({
