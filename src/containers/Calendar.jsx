@@ -2,7 +2,6 @@ import React, {PropTypes, Component} from 'react';
 import CalendarItem from './CalendarItem.jsx';
 import Link from './Link.jsx'
 
-
 const newActivity = [
   {
     day: 'Tirsdag',

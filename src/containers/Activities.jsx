@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes, Component} from 'react';
 import Link from './Link.jsx';
 
 function Activities() {
@@ -18,7 +18,40 @@ function Activities() {
   );
 }
 
-function AcitivityItem({name, organization, activated}){
+class AcitivityItem extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      activated: this.props.activated
+    };
+    this.setActivated = this.setActivated.bind(this);
+  }
+
+  setActivated(){
+    console.log("Clicked!");
+    this.setState({activated: !this.state.activated});
+  }
+
+  render() {
+    const {name, organization} = this.props;
+    const {activated} = this.state;
+    console.log(activated);
+    return (
+      <li className="acitivity-list-item clearfix">
+        <div className="activity-item-left-content">
+          <h4 className="activity-item-header">{name}</h4>
+          <p className="activity-faded-text">{organization}</p>
+        </div>
+          <div className="activity-item-right-content">
+          <button onClick={this.setActivated} className={activated ? 'activity-item-button  activated' : 'activity-item-button disabled' }>
+            {activated ? 'Aktivert' : 'Deaktivert'}
+          </button>
+        </div>
+      </li>
+    );
+  }
+}
+/*function AcitivityItem({name, organization, activated}){
   console.log(activated);
   return (
     <li className="acitivity-list-item clearfix">
@@ -33,6 +66,6 @@ function AcitivityItem({name, organization, activated}){
       </div>
     </li>
   )
-}
+}*/
 
 export default Activities;
