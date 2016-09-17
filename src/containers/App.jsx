@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import AppHeader from '../components/AppHeader.jsx';
 import DashBoard from './DashBoard.jsx';
 import Calendar from './Calendar.jsx';
+import Activities from './Activities.jsx';
 import { Router, Route, IndexRoute, Redirect, useRouterHistory } from 'react-router';
 
 function App({route}) {
