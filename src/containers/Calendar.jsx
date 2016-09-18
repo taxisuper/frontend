@@ -3,8 +3,10 @@ import CalendarItem from './CalendarItem.jsx';
 import Link from './Link.jsx'
 import db from './Firebase.jsx';
 
-let ref = db.ref('newActivity');
+let ref = db.ref('a3');
 let ref2 = db.ref('newActivity2');
+let done1 = false;
+let done2 = false;
 
 const newActivity = [
   {
@@ -84,8 +86,13 @@ class Calendar extends Component {
     };
 
     var that = this;
+    ref.once('value').then(function(snapshot) {
+      if(snapshot.val()){
+        that.test();
+      }
+    });
     ref.on('value', snapshot => {
-      if(snapshot.val().enabled){
+      if(snapshot.val()){
         that.test();
       }
     });
