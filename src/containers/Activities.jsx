@@ -2,11 +2,7 @@ import React, {PropTypes, Component} from 'react';
 import Link from './Link.jsx';
 import db from './Firebase';
 
-let ref = db.ref('newActivity');
 
-ref.set({
-  enabled : false
-});
 
 function Activities() {
   return (
@@ -18,9 +14,9 @@ function Activities() {
       <div className="content">
         <div >
           <ul className="activity-list">
-            <AcitivityItem name="Fotballtrening G13" organization="Lommedalen FK" activated={true} />
-            <AcitivityItem name="Moderne Dans" organization="Oslo Kulturskole" activated={true}/>
-            <AcitivityItem name="Fotballtrening G9" organization="Fotballklubben FK" activated={false}/>
+            <AcitivityItem name="Fotballtrening G13" organization="Lommedalen FK" id="1" activated={true} />
+            <AcitivityItem name="Moderne Dans" organization="Oslo Kulturskole" id="2" activated={true}/>
+            <AcitivityItem name="Fotballtrening G9" organization="Fotballklubben FK" id="3"  activated={false}/>
           </ul>
           </div>
       </div>
@@ -30,21 +26,29 @@ function Activities() {
 
 class AcitivityItem extends Component {
   constructor(props) {
+    let fid = `a${props.id}`;
+    let ref = db.ref(fid);
     super(props);
+    var that = this;
     this.state = {
-      activated: this.props.activated
+      activated: props.activated
     };
-    
+    ref.once('value').then(function(snapshot) {
+        that.test(snapshot.val());
+    });
     this.setActivated = this.setActivated.bind(this);
+    this.test = this.test.bind(this);
   }
 
   setActivated(){
     console.log("Clicked!");
-    ref.set({
-      enabled : true
-    });
+    let ref = db.ref(`a${this.props.id}`);
+    ref.set(!this.state.activated);
     this.setState({activated: !this.state.activated});
+  }
 
+  test(val){
+    this.setState({activated: val});
   }
 
   render() {
@@ -66,21 +70,5 @@ class AcitivityItem extends Component {
     );
   }
 }
-/*function AcitivityItem({name, organization, activated}){
-  console.log(activated);
-  return (
-    <li className="acitivity-list-item clearfix">
-      <div className="activity-item-left-content">
-        <h4 className="activity-item-header">{name}</h4>
-        <p className="activity-faded-text">{organization}</p>
-      </div>
-        <div className="activity-item-right-content">
-        <button onClick='{() => {activated = !activated}}' className="{activated ? 'activated' : 'disabled' }">
-          {activated ? 'activated' : 'disabled'}
-        </button>
-      </div>
-    </li>
-  )
-}*/
 
 export default Activities;
