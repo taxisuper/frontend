@@ -56,6 +56,15 @@ body {
   left: 0.3em;
 }
 
+.img-icon-car {
+  background-image: url("./icons/car.png");
+  background-size: cover;
+  display: inline-block;
+  height: 1.2em;
+  width: 1.2em;
+  vertical-align: text-bottom;
+}
+
 .img-icon-settings {
 	background-image: url("./icons/settings.png");
 }

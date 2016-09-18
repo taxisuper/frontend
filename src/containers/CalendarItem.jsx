@@ -6,7 +6,8 @@ function CalendarItem({day, date, activity, person, time, location, meDriving, d
         <p><span className={meDriving ? 'event-name-active' : 'event-name'}>{day} ({date})</span></p>
          <p>{activity} - {person}</p>
         <p className="activity-metadata">
-        <a className="activity-location">Kl {time} {meDriving ? 'Meg' : <span>{driver}</span>} </a>
+        <a className="activity-location">
+          Kl {time} <span className="img-icon img-icon-car"></span>{meDriving ? 'Meg' : <span>{driver}</span>} </a>
         </p>
       </li>
   );

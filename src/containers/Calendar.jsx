@@ -10,23 +10,23 @@ let done2 = false;
 
 const newActivity = [
   {
-    day: 'Tirsdag',
+    day: 'Torsdag',
     date: '30 Oktober',
-    person: 'Jonas',
-    activity: 'Fotballtrening',
+    person: 'Andreas',
+    activity: 'Basketball',
     time: '17:00',
-    location: 'Ekebergsletta',
-    week: 35,
+    location: 'Manglerudhallen',
+    week: 40,
     meDriving: false,
   },
   {
     day: 'Lørdag',
-    date: '10 November',
+    date: '1. November',
     person: 'Andreas',
     activity: 'FotballCup',
     time: '13:00',
     location: 'Drammen',
-    week: 35,
+    week: 40,
     meDriving: false,
   },
   {
