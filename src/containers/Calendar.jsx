@@ -1,6 +1,10 @@
 import React, {PropTypes, Component} from 'react';
 import CalendarItem from './CalendarItem.jsx';
 import Link from './Link.jsx'
+import db from './Firebase.jsx';
+
+let ref = db.ref('newActivity');
+let ref2 = db.ref('newActivity2');
 
 const newActivity = [
   {
@@ -56,6 +60,26 @@ class Calendar extends Component {
       ],
       counter: 0
     };
+
+    var that = this;
+    ref.on('value', snapshot => {
+      if(snapshot.val().enabled){
+        that.test();
+      }
+    });
+    ref2.on('value',value =>{
+        if(value.val()){
+          that.test();
+        }
+    });
+    this.test = this.test.bind(this);
+  }
+
+  test() {
+    this.setState({
+        calenderItems: [...this.state.calenderItems,  newActivity[this.state.counter]],
+        counter: this.state.counter + 1,
+    });
   }
 
   render() {
