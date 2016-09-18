@@ -15,7 +15,7 @@ const newActivity = [
     time: '17:00',
     location: 'Ekebergsletta',
     week: 35,
-  meDriving: false,
+    meDriving: false,
   },
   {
     day: 'Lørdag',
@@ -34,8 +34,44 @@ const newActivity = [
     activity: 'Fotballkamp',
     time: '13:00',
     location: 'Hasle kunstgress',
-    week: 36,
+    week: 40,
     meDriving: false,
+  },
+];
+
+const initialCalendarItems = [
+  {
+    day: 'Mandag',
+    date: '26 september',
+    person: 'Andreas',
+    activity: 'Fotballtrening',
+    time: '17:00',
+    location: 'Vallhall',
+    week: 34,
+    meDriving: true,
+    driver: 'Larsen'
+  },
+  {
+    day: 'Lørdag',
+    date: '1 oktober',
+    person: 'Maria',
+    activity: 'Moderne dans',
+    time: '11:00',
+    location: 'Oslo Kulturskole',
+    week: 34,
+    meDriving: false,
+    driver: 'Kari Johansen',
+  },
+  {
+    day: 'Mandag',
+    date: '3 Oktober',
+    person: 'Andreas',
+    activity: 'Fotballtrening',
+    time: '17:00',
+    location: 'Ekebergsletta',
+    week: 35,
+    meDriving: false,
+    driver: 'Ola Ruud',
   },
 ];
 
@@ -43,29 +79,7 @@ class Calendar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      calenderItems: [
-        {
-          day: 'Mandag',
-          date: '26 september',
-          person: 'Andreas',
-          activity: 'Fotballtrening',
-          time: '17:00',
-          location: 'Vallhall',
-          week: 34,
-          meDriving: true,
-          persons: 'Kjell og Kåre'
-        },
-        {
-          day: 'Lørdag',
-          date: '1 oktober',
-          person: 'Maria',
-          activity: 'Moderne dans',
-          time: '11:00',
-          location: 'Oslo Kulturskole',
-          week: 35,
-          meDriving: false,
-        }
-      ],
+      calenderItems: initialCalendarItems,
       counter: 0
     };
 
@@ -90,38 +104,50 @@ class Calendar extends Component {
     });
   }
 
+
   render() {
-    const compareItems = (a, b) => {
-      return a.week > b.week
-    }
+    const renderCalenderItemsByWeek = (calenderItems) => {
+
+      const unique = function(xs) {
+        return xs.filter(function(x, i) {
+          return xs.indexOf(x) === i
+        })
+      };
+
+      const weeks = calenderItems.map(item => item.week);
+      const uniqueWeeks = unique(weeks);
+      return uniqueWeeks.map(w => {
+        const calenderItemsWithThisWeek = calenderItems.filter(item => item.week === w);
+        return(
+          <div>
+            <div className="week-header">
+              <span className="img-icon img-icon-calendar"></span>Uke {w}
+            </div>
+            <ul className="calendar-list">
+            {calenderItemsWithThisWeek.map(item =>
+              <CalendarItem
+                day={item.day}
+                person={item.person}
+                date={item.date}
+                time={item.time}
+                activity={item.activity}
+                location={item.location}
+                meDriving={item.meDriving}
+                persons={item.persons}
+              />)}
+              </ul>
+            </div>
+        )
+      })
+    };
+
     return (
       <div className="calendar">
         <div className="header">
           <Link to="/activities" className="img-icon img-icon-window-restore"></Link>
           Kalender
         </div>
-        <div className="week-header">
-          <span className="img-icon img-icon-calendar"></span>Uke 43
-        </div>
-        <ul className="calendar-list">
-          {this.state.calenderItems.sort(compareItems).map(item =>
-            <CalendarItem
-              day={item.day}
-              person={item.person}
-              date={item.date}
-              time={item.time}
-              activity={item.activity}
-              location={item.location}
-              meDriving={item.meDriving}
-              persons={item.persons}
-            />)}
-        </ul>
-        <button className="button" onClick={() => this.setState({
-            calenderItems: [...this.state.calenderItems,  newActivity[this.state.counter]],
-            counter: this.state.counter + 1,
-          })}>
-          Oppdater
-        </button>
+        {renderCalenderItemsByWeek(this.state.calenderItems)}
       </div>
     );
   }

@@ -96,6 +96,10 @@ h1.heading {
   padding: 1em 0.2em;
 }
 
+.calendar-element:last-child {
+  border:none;
+}
+
 .app-header {
   width: 160px;
   position: absolute;

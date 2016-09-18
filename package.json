@@ -8,6 +8,7 @@
   "private": true,
   "dependencies": {
     "express": "^4.13.4",
+    "firebase": "^3.4.0",
     "history": "2.1.1",
     "json-server": "^0.8.9",
     "lodash": "^4.9.0",
