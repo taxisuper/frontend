@@ -146,6 +146,22 @@ h1.heading {
   padding: 1em;
 }
 
+.activity-metadata {
+  color: grey;
+}
+
+.activity-location {
+  color: grey;
+}
+
+.event-name {
+  color: #FFAC21;
+}
+
+.event-name-active {
+  color: #4CAF50;
+}
+
 .button-small {
   width: auto;
   font-size: 0.8em;

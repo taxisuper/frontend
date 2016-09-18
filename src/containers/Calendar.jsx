@@ -6,20 +6,22 @@ const newActivity = [
   {
     day: 'Tirsdag',
     date: '30 Oktober',
-    person: 'Andreas',
-    activity: 'Fotballkamp',
+    person: 'Jonas',
+    activity: 'Fotballtrening',
     time: '17:00',
     location: 'Ekebergsletta',
     week: 35,
+  meDriving: false,
   },
   {
-    day: 'Onsdag',
+    day: 'Lørdag',
     date: '10 November',
     person: 'Andreas',
-    activity: 'Fotballkamp',
-    time: '17:00',
+    activity: 'FotballCup',
+    time: '13:00',
     location: 'Drammen',
     week: 35,
+    meDriving: false,
   },
   {
     day: 'Søndag',
@@ -29,6 +31,7 @@ const newActivity = [
     time: '13:00',
     location: 'Hasle kunstgress',
     week: 36,
+    meDriving: false,
   },
 ];
 
@@ -44,7 +47,9 @@ class Calendar extends Component {
           activity: 'Fotballtrening',
           time: '17:00',
           location: 'Vallhall',
-          week: 34
+          week: 34,
+          meDriving: true,
+          persons: 'Kjell og Kåre'
         },
         {
           day: 'Lørdag',
@@ -53,7 +58,8 @@ class Calendar extends Component {
           activity: 'Moderne dans',
           time: '11:00',
           location: 'Oslo Kulturskole',
-          week: 35
+          week: 35,
+          meDriving: false,
         }
       ],
       counter: 0
@@ -64,7 +70,6 @@ class Calendar extends Component {
     const compareItems = (a, b) => {
       return a.week > b.week
     }
-    console.log('Yo');
     return (
       <div className="calendar">
         <div className="header">
@@ -83,6 +88,8 @@ class Calendar extends Component {
               time={item.time}
               activity={item.activity}
               location={item.location}
+              meDriving={item.meDriving}
+              persons={item.persons}
             />)}
         </ul>
         <button className="button" onClick={() => this.setState({

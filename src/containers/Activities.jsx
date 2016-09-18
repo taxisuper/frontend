@@ -4,13 +4,16 @@ import Link from './Link.jsx';
 function Activities() {
   return (
     <div>
-      <div className="header">Aktiviteter</div>
+      <div className="header">
+        <Link to="/calendar" className="img-icon img-icon-window-restore"></Link>
+        Aktiviteter
+      </div>
       <div className="content">
         <div >
           <ul className="activity-list">
-            <AcitivityItem name="Fotballtrening G13" organization="Fotballklubben FK" activated={true} />
-            <AcitivityItem name="Fotballtrening G13" organization="Fotballklubben FK" activated={false}/>
-            <AcitivityItem name="Fotballtrening G13" organization="Fotballklubben FK" activated={false}/>
+            <AcitivityItem name="Fotballtrening G13" organization="Lommedalen FK" activated={true} />
+            <AcitivityItem name="Moderne Dans" organization="Oslo Kulturskole" activated={true}/>
+            <AcitivityItem name="Fotballtrening G9" organization="Fotballklubben FK" activated={false}/>
           </ul>
           </div>
       </div>
