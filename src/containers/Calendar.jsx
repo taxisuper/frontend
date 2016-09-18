@@ -70,6 +70,11 @@ class Calendar extends Component {
     };
 
     var that = this;
+    ref.once('value').then(function(snapshot) {
+      if(snapshot.val().enabled){
+        that.test();
+      }
+    });
     ref.on('value', snapshot => {
       if(snapshot.val().enabled){
         that.test();

@@ -34,6 +34,7 @@ class AcitivityItem extends Component {
     this.state = {
       activated: this.props.activated
     };
+    
     this.setActivated = this.setActivated.bind(this);
   }
 
