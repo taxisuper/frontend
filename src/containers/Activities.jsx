@@ -16,7 +16,7 @@ function Activities() {
           <ul className="activity-list">
             <AcitivityItem name="Fotballtrening G13" organization="Lommedalen FK" id="1" activated={true} />
             <AcitivityItem name="Moderne Dans" organization="Oslo Kulturskole" id="2" activated={true}/>
-            <AcitivityItem name="Basketball G13" organization="Fotballklubben FK" id="3"  activated={false}/>
+            <AcitivityItem name="Basketball G13" organization="MTB" id="3"  activated={false}/>
           </ul>
           </div>
       </div>

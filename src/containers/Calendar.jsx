@@ -15,7 +15,7 @@ const newActivity = [
     time: '17:00',
     location: 'Manglerudhallen',
     week: 40,
-    meDriving: false,
+    meDriving: true,
   },
   {
     day: 'Lørdag',
@@ -60,7 +60,7 @@ const initialCalendarItems = [
     location: 'Oslo Kulturskole',
     week: 34,
     meDriving: false,
-    driver: 'Kari Johansen',
+    driver: 'Kari Vik',
   },
   {
     day: 'Mandag',
@@ -151,6 +151,7 @@ class Calendar extends Component {
                 activity={item.activity}
                 location={item.location}
                 meDriving={item.meDriving}
+                driver={item.driver}
                 persons={item.persons}
               />)}
               </ul>
