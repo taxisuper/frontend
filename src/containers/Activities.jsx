@@ -61,7 +61,7 @@ class AcitivityItem extends Component {
           <p className="activity-faded-text">{organization}</p>
         </div>
           <div className="activity-item-right-content">
-          <button onClick={() => this.setState({activated: !this.state.activated})} className={activated ? 'activity-item-button  activated' : 'activity-item-button disabled' }>
+          <button onClick={this.setActivated} className={activated ? 'activity-item-button  activated' : 'activity-item-button disabled' }>
             {activated ? 'Aktivert' : 'Deaktivert'}
           </button>
         </div>

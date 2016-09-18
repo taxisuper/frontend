@@ -5,8 +5,6 @@ import db from './Firebase.jsx';
 
 let ref = db.ref('a3');
 let ref2 = db.ref('newActivity2');
-let done1 = false;
-let done2 = false;
 
 const newActivity = [
   {
@@ -91,6 +89,11 @@ class Calendar extends Component {
         that.test();
       }
     });
+    ref2.once('value').then(function(snapshot) {
+      if(snapshot.val()){
+        that.test2();
+      }
+    });
     ref.on('value', snapshot => {
       if(snapshot.val()){
         that.test();
@@ -98,16 +101,24 @@ class Calendar extends Component {
     });
     ref2.on('value',value =>{
         if(value.val()){
-          that.test();
+          that.test2();
         }
     });
     this.test = this.test.bind(this);
+    this.test2 = this.test2.bind(this);
   }
 
   test() {
     this.setState({
-        calenderItems: [...this.state.calenderItems,  newActivity[this.state.counter]],
-        counter: this.state.counter + 1,
+        calenderItems: [...this.state.calenderItems,  newActivity[0]],
+      //  counter: this.state.counter + 1,
+    });
+  }
+
+  test2(){
+    this.setState({
+        calenderItems: [...this.state.calenderItems,  newActivity[1]],
+      //  counter: this.state.counter + 1,
     });
   }
 
