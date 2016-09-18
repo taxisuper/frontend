@@ -1,5 +1,12 @@
 import React, {PropTypes, Component} from 'react';
 import Link from './Link.jsx';
+import db from './Firebase';
+
+let ref = db.ref('newActivity');
+
+ref.set({
+  enabled : false
+});
 
 function Activities() {
   return (
@@ -32,7 +39,11 @@ class AcitivityItem extends Component {
 
   setActivated(){
     console.log("Clicked!");
+    ref.set({
+      enabled : true
+    });
     this.setState({activated: !this.state.activated});
+
   }
 
   render() {
